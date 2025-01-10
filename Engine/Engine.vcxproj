@@ -19,9 +19,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Logger.h" />
     <ClInclude Include="include\test.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Logger.cpp" />
     <ClCompile Include="src\test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
