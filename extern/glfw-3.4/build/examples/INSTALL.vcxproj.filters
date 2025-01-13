@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Dev\HookBill\extern\glfw-3.4\build\CMakeFiles\c6925ea04d5fc379eb45e978be9930ad\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{83A62C77-07C8-3579-BAD1-34DE68C5C227}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
