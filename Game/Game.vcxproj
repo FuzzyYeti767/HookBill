@@ -53,11 +53,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>$(SolutionDir)extern\glfw-3.4\lib;C:\Dev\HookBill\extern\spdlog\include;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include</IncludePath>
+    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends</IncludePath>
     <ExternalIncludePath>C:\Dev\HookBill\extern\spdlog\include;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include</IncludePath>
+    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends</IncludePath>
     <LibraryPath>$(SolutionDir)extern\glfw-3.4\lib;C:\Dev\HookBill\extern\spdlog\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -67,6 +67,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <AdditionalOptions>/NODEFAULTLIB %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -83,6 +84,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <AdditionalOptions>/NODEFAULTLIB %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

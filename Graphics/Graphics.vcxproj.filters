@@ -13,6 +13,9 @@
     <Filter Include="glad">
       <UniqueIdentifier>{ddfe2a24-7cac-408b-8eda-d7438d45b3b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ImGui\backend">
+      <UniqueIdentifier>{7c2fc0c3-c16e-4945-bef2-4db53e7b5b8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ImGuiHelper.h">
@@ -45,6 +48,39 @@
     <ClInclude Include="include\KHR\khrplatform.h">
       <Filter>glad</Filter>
     </ClInclude>
+    <ClInclude Include="src\imgui_impl_dx9.h">
+      <Filter>ImGui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imgui_impl_dx10.h">
+      <Filter>ImGui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imgui_impl_dx11.h">
+      <Filter>ImGui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imgui_impl_dx12.h">
+      <Filter>ImGui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imgui_impl_glfw.h">
+      <Filter>ImGui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imgui_impl_metal.h">
+      <Filter>ImGui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imgui_impl_opengl2.h">
+      <Filter>ImGui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imgui_impl_opengl3.h">
+      <Filter>ImGui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imgui_impl_opengl3_loader.h">
+      <Filter>ImGui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imgui_impl_osx.h">
+      <Filter>ImGui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imgui_impl_win32.h">
+      <Filter>ImGui\backend</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ImGuiHelper.cpp">
@@ -71,5 +107,37 @@
     <ClCompile Include="src\glad.c">
       <Filter>glad</Filter>
     </ClCompile>
+    <ClCompile Include="src\imgui_impl_dx9.cpp">
+      <Filter>ImGui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgui_impl_dx10.cpp">
+      <Filter>ImGui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgui_impl_dx11.cpp">
+      <Filter>ImGui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgui_impl_dx12.cpp">
+      <Filter>ImGui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgui_impl_glfw.cpp">
+      <Filter>ImGui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgui_impl_opengl2.cpp">
+      <Filter>ImGui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgui_impl_opengl3.cpp">
+      <Filter>ImGui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgui_impl_win32.cpp">
+      <Filter>ImGui\backend</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\imgui_impl_metal.mm">
+      <Filter>ImGui\backend</Filter>
+    </None>
+    <None Include="src\imgui_impl_osx.mm">
+      <Filter>ImGui\backend</Filter>
+    </None>
   </ItemGroup>
 </Project>
