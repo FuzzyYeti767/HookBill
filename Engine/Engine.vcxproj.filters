@@ -7,6 +7,9 @@
     <Filter Include="test">
       <UniqueIdentifier>{ed18256a-d592-485d-837f-d69196ef5013}</UniqueIdentifier>
     </Filter>
+    <Filter Include="window">
+      <UniqueIdentifier>{2d27a9a4-0e48-4b33-972a-760ac4c511d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Logger.h">
