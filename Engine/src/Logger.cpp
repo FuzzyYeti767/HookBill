@@ -32,7 +32,7 @@ void HookBill::Logger::LogDebug(std::string text)
 
 void HookBill::Logger::LogVerbose(std::string text)
 {
-	spdlog::info(text);
+	spdlog::trace(text);
 }
 
 

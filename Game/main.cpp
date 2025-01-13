@@ -2,12 +2,13 @@
 #include<Logger.h>
 int main()
 {
-	HookBill::Logger logger(HookBill::Logger::Severity::Verbose,true);
-	logger.LogVerbose("sex\n");
-	logger.LogEvent("sex\n");
+	HookBill::Logger logger(HookBill::Logger::Severity::Debug,true);
+	logger.LogVerbose("verbose sex\n");
+	logger.LogDebug("debug sex\n");
+	logger.LogEvent("event sex\n");
 	
-	logger.LogError("sex\n");
+	logger.LogError("error sex\n");
 	
-	logger.LogDebug("sex\n");
+	
 	
 }
