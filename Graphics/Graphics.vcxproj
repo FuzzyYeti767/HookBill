@@ -65,6 +65,8 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalOptions>/c428 %(AdditionalOptions)</AdditionalOptions>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -80,6 +82,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;GRAPHICS_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -104,7 +108,7 @@
     <ClInclude Include="include\imstb_textedit.h" />
     <ClInclude Include="include\imstb_truetype.h" />
     <ClInclude Include="include\KHR\khrplatform.h" />
-    <ClInclude Include="include\window.h" />
+    <ClInclude Include="include\opengl-window.h" />
     <ClInclude Include="src\imgui_impl_dx10.h" />
     <ClInclude Include="src\imgui_impl_dx11.h" />
     <ClInclude Include="src\imgui_impl_dx12.h" />
@@ -133,7 +137,7 @@
     <ClCompile Include="src\imgui_impl_opengl2.cpp" />
     <ClCompile Include="src\imgui_impl_opengl3.cpp" />
     <ClCompile Include="src\imgui_impl_win32.cpp" />
-    <ClCompile Include="src\Window.cpp" />
+    <ClCompile Include="src\opengl-Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\imgui_impl_metal.mm" />

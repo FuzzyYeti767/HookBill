@@ -16,6 +16,9 @@
     <Filter Include="ImGui\backend">
       <UniqueIdentifier>{7c2fc0c3-c16e-4945-bef2-4db53e7b5b8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="event">
+      <UniqueIdentifier>{769f61dc-e165-4095-bf9e-37c5c8b6b695}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ImGuiHelper.h">
@@ -39,7 +42,7 @@
     <ClInclude Include="include\imstb_truetype.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="include\window.h">
+    <ClInclude Include="include\opengl-window.h">
       <Filter>window</Filter>
     </ClInclude>
     <ClInclude Include="include\glad\glad.h">
@@ -101,7 +104,7 @@
     <ClCompile Include="include\imgui_widgets.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Window.cpp">
+    <ClCompile Include="src\opengl-Window.cpp">
       <Filter>window</Filter>
     </ClCompile>
     <ClCompile Include="src\glad.c">

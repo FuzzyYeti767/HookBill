@@ -1,15 +1,13 @@
-#include<test.h>
-#include<Logger.h>
-#include"window.h"
+#include"Engine.h"
 int main()
 {
-	HookBill::Logger logger(HookBill::Logger::Severity::Debug,true);
-	logger.LogVerbose("Hello \n");
-	logger.LogDebug("Mother\n");
-	logger.LogEvent("event se\n");
+	Engine& engine = Engine::Instance();
+	engine.Init("Fuck You Digipen");
+	while (!engine.ShouldCloseWindow())
+	{
+		engine.Update();
+	}
 	
-	logger.LogError("error sex\n");
 	
-	HookBill::create_window();
 	
-}
+}   

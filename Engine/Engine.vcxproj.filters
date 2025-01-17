@@ -10,6 +10,18 @@
     <Filter Include="window">
       <UniqueIdentifier>{2d27a9a4-0e48-4b33-972a-760ac4c511d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{0d1bf1de-0341-482d-8b67-aeca5c04495a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameStateManager">
+      <UniqueIdentifier>{8a6ab11d-60ca-4ccc-82a6-d241df5bbf00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameState">
+      <UniqueIdentifier>{e6156b6b-6c70-4681-8f52-f59bbb5dfaa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event">
+      <UniqueIdentifier>{7002e4d1-d537-413e-b3b7-975075db4dbf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Logger.h">
@@ -18,6 +30,21 @@
     <ClInclude Include="include\test.h">
       <Filter>test</Filter>
     </ClInclude>
+    <ClInclude Include="include\Window.h">
+      <Filter>window</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GaemStateManager.h">
+      <Filter>GameStateManager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameState.h">
+      <Filter>GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="include\event.h">
+      <Filter>Event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Logger.cpp">
@@ -25,6 +52,15 @@
     </ClCompile>
     <ClCompile Include="src\test.cpp">
       <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window.cpp">
+      <Filter>window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameStateManager.cpp">
+      <Filter>GameStateManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
