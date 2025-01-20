@@ -10,7 +10,7 @@
 #include<Imgui.h>
 #include <imgui_impl_opengl3.h>
 #include <imgui_impl_glfw.h>
-
+#include<string>
 
 namespace ImGuiHelper
 {
@@ -68,6 +68,9 @@ namespace ImGuiHelper
         ImGui::DestroyContext();
     }
 
+
+
+   
 
 
 }

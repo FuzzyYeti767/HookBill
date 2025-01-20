@@ -88,21 +88,21 @@ namespace HookBill
 		);
 
 		addEventListener(Event::Type::MouseMoved, 
-			[](const Event& event) 
+			[]([[maybe_unused]]const Event& event) 
 			{
-			std::cout << "Mouse moved to: (" << event.x << ", " << event.y << ")" << std::endl;
+			//std::cout << "Mouse moved to: (" << event.x << ", " << event.y << ")" << std::endl;
 			}
 		);
-		addEventListener(Event::Type::MouseButtonPressed, [](const Event& event) 
+		addEventListener(Event::Type::MouseButtonPressed, []([[maybe_unused]] const Event& event)
 			{
 
-			std::cout << "Mouse Button " << event.key << " pressed at: (" << event.x << ", " << event.y << ")" << std::endl;
+			//std::cout << "Mouse Button " << event.key << " pressed at: (" << event.x << ", " << event.y << ")" << std::endl;
 			}
 		);
 		addEventListener(Event::Type::MouseScroll,
-			[](const Event& event) 
+			[]([[maybe_unused]] const Event& event)
 			{
-			std::cout << "Mouse wheel scrolled: (" << event.x << ", " << event.y << ")" << std::endl;
+			//std::cout << "Mouse wheel scrolled: (" << event.x << ", " << event.y << ")" << std::endl;
 			});
 
 		ImGuiHelper::Initialize(Get_OpenGL_Window_ptr());

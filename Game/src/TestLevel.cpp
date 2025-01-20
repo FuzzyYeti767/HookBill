@@ -1,12 +1,13 @@
 #include "TestLevel.h"
 #include"imgui.h"
+
 HookBill::TestLevel::TestLevel():key(HookBill::InputKey::Keyboard::A)
 {
 }
 
 void HookBill::TestLevel::Load()
 {
-	
+	ImGuiHelper::print_and_save_opengl_settings();
 	
 }
 
@@ -27,8 +28,23 @@ void HookBill::TestLevel::Draw()
 
 void HookBill::TestLevel::ImGuiDraw()
 {
-	static bool show_debug_window = true;
-	ImGui::Checkbox("Show Debug Window", &show_debug_window);
+
+	ImGui::Begin("Program Info");
+	{
+		
+
+		for (const auto& [label, description] : ImGuiHelper::settings_descriptions)
+		{
+			ImGui::LabelText(label.c_str(), "%s", description.c_str());
+		}
+		{
+			
+		}
+	}
+	ImGui::End();
+
+
+	
 }
 
 void HookBill::TestLevel::Unload()
