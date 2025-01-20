@@ -53,11 +53,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>$(SolutionDir)extern\glfw-3.4\lib;C:\Dev\HookBill\extern\spdlog\include;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends</IncludePath>
+    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends;$(ProjectDir)include</IncludePath>
     <ExternalIncludePath>C:\Dev\HookBill\extern\spdlog\include;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends</IncludePath>
+    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends;$(ProjectDir)include</IncludePath>
     <LibraryPath>$(SolutionDir)extern\glfw-3.4\lib;C:\Dev\HookBill\extern\spdlog\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -98,11 +98,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\TestLevel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
       <Project>{6e8c3aff-fa28-40fd-8d5b-7a9b3d465b53}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\TestLevel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

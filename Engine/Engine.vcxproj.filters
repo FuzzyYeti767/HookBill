@@ -22,6 +22,9 @@
     <Filter Include="Event">
       <UniqueIdentifier>{7002e4d1-d537-413e-b3b7-975075db4dbf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{ee9f9f36-c64c-49ac-9088-d933ef13b221}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Logger.h">
@@ -45,6 +48,9 @@
     <ClInclude Include="include\event.h">
       <Filter>Event</Filter>
     </ClInclude>
+    <ClInclude Include="include\Input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Logger.cpp">
@@ -61,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="src\GameStateManager.cpp">
       <Filter>GameStateManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@
  */
 
 #include "ImGuiHelper.h"
+#include"glad/glad.h"
 #include<GLFW/glfw3.h>
 #include<Imgui.h>
 #include <imgui_impl_opengl3.h>
@@ -40,18 +41,24 @@ namespace ImGuiHelper
         ImGui::NewFrame();
     }
 
-    void End(GLFWwindow*window)
+    void End(GLFWwindow* window)
     {
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
         const ImGuiIO& io = ImGui::GetIO();
         if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
         {
+            GLFWwindow* backup_context = glfwGetCurrentContext(); // 현재 OpenGL 컨텍스트 백업
             ImGui::UpdatePlatformWindows();
             ImGui::RenderPlatformWindowsDefault();
-            glfwSwapBuffers(window);
+            glfwMakeContextCurrent(backup_context); // 원래 컨텍스트로 복원
         }
+
+        glfwSwapBuffers(window); // 항상 SwapBuffers 호출
     }
+
+
 
 
     void ShutDown()

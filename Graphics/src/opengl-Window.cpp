@@ -40,7 +40,7 @@ int HookBill_opengl::create_window(std::string windowname)
         std::cout << "Failed to initialize GLAD!" << std::endl;
         return -1;
     }
-
+    glViewport(0,0, SCR_WIDTH,SCR_HEIGHT);
     
     return 0;
 }
@@ -48,9 +48,10 @@ int HookBill_opengl::create_window(std::string windowname)
 
 void HookBill_opengl::update_window()
 {
-    glfwSwapBuffers(window_ptr);
-
     glfwPollEvents();
+    //glfwSwapBuffers(window_ptr);
+
+   
 }
 
 bool HookBill_opengl::ShouldCloseWindow()

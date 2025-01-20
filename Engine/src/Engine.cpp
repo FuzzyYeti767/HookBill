@@ -24,8 +24,12 @@ void Engine::Shutdown()
 
 void Engine::Update()
 {
-	//GetGameStateManager().Update();
+
+
+	GetInput().Update();
+	GetGameStateManager().Update();
 	GetWindow().Update();
+
 	//ToDo : Input update 
 }
 

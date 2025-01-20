@@ -38,17 +38,23 @@ namespace HookBill
 			state = State::UPDATE;
 			break;
 		case State::UPDATE:
-			if (nextGameState != nullptr)
+			if (currGameState !=nextGameState)
 			{
 				state = State::UNLOAD;
 			}
 
-			currGameState->Update();
-			currGameState->Draw();
+			else
+			{
+				currGameState->Update();
+				
+				ImGuiHelper::Begin();
+				currGameState->Draw();
+				currGameState->ImGuiDraw();
+				ImGuiHelper::End(Engine::GetWindow().Get_OpenGL_Window_ptr());
+				
+			//	Engine::GetLogger().LogEvent("Updateing !!! ");
 
-			ImGuiHelper::Begin();
-			currGameState->ImGuiDraw();
-			ImGuiHelper::End(Engine::GetWindow().Get_OpenGL_Window_ptr());
+			}
 
 			break;
 		case State::UNLOAD:

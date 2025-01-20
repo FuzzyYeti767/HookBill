@@ -3,7 +3,7 @@
 #include"Logger.h"
 #include"GaemStateManager.h"
 #include"event.h"
-
+#include"Input.h"
 
 class Engine {
 public:
@@ -12,6 +12,7 @@ public:
     static HookBill::Window& GetWindow() { return Instance().window; }
     static HookBill::GameStateManager& GetGameStateManager() { return Instance().game_state_manager; }
     static HookBill::EventDispatcher& GetEventDispatcher() { return Instance().event_dispatcher; }
+    static HookBill::Input& GetInput() { return Instance().input; }
     void Init(std::string windowName);
     void Shutdown();
     void Update();
@@ -26,5 +27,6 @@ private:
     HookBill::Window window;
     HookBill::GameStateManager game_state_manager;
     HookBill::EventDispatcher event_dispatcher;
+    HookBill::Input input;
   
 };

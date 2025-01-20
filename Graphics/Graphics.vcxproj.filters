@@ -16,9 +16,6 @@
     <Filter Include="ImGui\backend">
       <UniqueIdentifier>{7c2fc0c3-c16e-4945-bef2-4db53e7b5b8e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="event">
-      <UniqueIdentifier>{769f61dc-e165-4095-bf9e-37c5c8b6b695}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ImGuiHelper.h">

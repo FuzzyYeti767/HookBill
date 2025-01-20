@@ -23,6 +23,7 @@
     <ClInclude Include="include\event.h" />
     <ClInclude Include="include\GaemStateManager.h" />
     <ClInclude Include="include\GameState.h" />
+    <ClInclude Include="include\Input.h" />
     <ClInclude Include="include\Logger.h" />
     <ClInclude Include="include\test.h" />
     <ClInclude Include="include\Window.h" />
@@ -30,6 +31,7 @@
   <ItemGroup>
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\GameStateManager.cpp" />
+    <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Logger.cpp" />
     <ClCompile Include="src\test.cpp" />
     <ClCompile Include="src\Window.cpp" />
