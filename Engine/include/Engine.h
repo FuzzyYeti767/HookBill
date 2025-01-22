@@ -4,7 +4,7 @@
 #include"GaemStateManager.h"
 #include"event.h"
 #include"Input.h"
-
+#include"Timing.h"
 class Engine {
 public:
     static Engine& Instance() { static Engine instance; return instance; }
@@ -13,6 +13,7 @@ public:
     static HookBill::GameStateManager& GetGameStateManager() { return Instance().game_state_manager; }
     static HookBill::EventDispatcher& GetEventDispatcher() { return Instance().event_dispatcher; }
     static HookBill::Input& GetInput() { return Instance().input; }
+    static HookBill::Timing& GetTiming() { return Instance().timing; }
     void Init(std::string windowName);
     void Shutdown();
     void Update();
@@ -28,5 +29,11 @@ private:
     HookBill::GameStateManager game_state_manager;
     HookBill::EventDispatcher event_dispatcher;
     HookBill::Input input;
+    HookBill::Timing timing;
+
+    //Calculate 
+
+
+    void update_timing();
   
 };

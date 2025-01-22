@@ -2,12 +2,18 @@
 
 Engine::Engine():logger(HookBill::Logger::Severity::Verbose, true)
 {
-
+	timing.start_time = std::chrono::system_clock::now();
+	timing.prev_time = timing.start_time;
 }
 
 Engine::~Engine()
 {
 	GetWindow().ShutDown();
+}
+
+void Engine::update_timing()
+{
+	
 }
 
 void Engine::Init(std::string windowName)
@@ -29,7 +35,7 @@ void Engine::Update()
 	GetInput().Update();
 	GetGameStateManager().Update();
 	GetWindow().Update();
-
+	GetTiming().update_timing();
 	//ToDo : Input update 
 }
 

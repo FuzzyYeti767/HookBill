@@ -32,6 +32,7 @@ void HookBill::TestLevel::ImGuiDraw()
 	ImGui::Begin("Program Info");
 	{
 		
+		ImGui::LabelText("FPS", "%.1f", Engine::GetTiming().get_fps());
 
 		for (const auto& [label, description] : ImGuiHelper::settings_descriptions)
 		{
