@@ -16,6 +16,9 @@
     <Filter Include="ImGui\backend">
       <UniqueIdentifier>{7c2fc0c3-c16e-4945-bef2-4db53e7b5b8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CS200_OPENGL_CODE">
+      <UniqueIdentifier>{3aeb9c35-a8f9-410b-a458-a9670c6bd7d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ImGuiHelper.h">
@@ -81,6 +84,48 @@
     <ClInclude Include="src\imgui_impl_win32.h">
       <Filter>ImGui\backend</Filter>
     </ClInclude>
+    <ClInclude Include="include\angles.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\color3.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glCheck.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLHandle.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLIndexBuffer.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLShader.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLVertexArray.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLVertexBuffer.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mat3.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\not_null.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\owner.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Random.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vec2.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vec3.h">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ImGuiHelper.cpp">
@@ -130,6 +175,30 @@
     </ClCompile>
     <ClCompile Include="src\imgui_impl_win32.cpp">
       <Filter>ImGui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glCheck.cpp">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLIndexBuffer.cpp">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLShader.cpp">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLVertexArray.cpp">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mat3.cpp">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Random.cpp">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vec2.cpp">
+      <Filter>CS200_OPENGL_CODE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLVertexBuffer.cpp">
+      <Filter>CS200_OPENGL_CODE</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

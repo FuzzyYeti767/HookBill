@@ -63,7 +63,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;GRAPHICS_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/c428 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
       <TreatWarningAsError>false</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -84,6 +84,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -99,7 +100,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\angles.h" />
+    <ClInclude Include="include\color3.h" />
     <ClInclude Include="include\glad\glad.h" />
+    <ClInclude Include="include\glCheck.h" />
+    <ClInclude Include="include\GLHandle.h" />
+    <ClInclude Include="include\GLIndexBuffer.h" />
+    <ClInclude Include="include\GLShader.h" />
+    <ClInclude Include="include\GLVertexArray.h" />
+    <ClInclude Include="include\GLVertexBuffer.h" />
     <ClInclude Include="include\imconfig.h" />
     <ClInclude Include="include\imgui.h" />
     <ClInclude Include="include\ImGuiHelper.h" />
@@ -108,7 +117,13 @@
     <ClInclude Include="include\imstb_textedit.h" />
     <ClInclude Include="include\imstb_truetype.h" />
     <ClInclude Include="include\KHR\khrplatform.h" />
+    <ClInclude Include="include\mat3.h" />
+    <ClInclude Include="include\not_null.h" />
     <ClInclude Include="include\opengl-window.h" />
+    <ClInclude Include="include\owner.h" />
+    <ClInclude Include="include\Random.h" />
+    <ClInclude Include="include\vec2.h" />
+    <ClInclude Include="include\vec3.h" />
     <ClInclude Include="src\imgui_impl_dx10.h" />
     <ClInclude Include="src\imgui_impl_dx11.h" />
     <ClInclude Include="src\imgui_impl_dx12.h" />
@@ -128,6 +143,11 @@
     <ClCompile Include="include\imgui_tables.cpp" />
     <ClCompile Include="include\imgui_widgets.cpp" />
     <ClCompile Include="src\glad.c" />
+    <ClCompile Include="src\glCheck.cpp" />
+    <ClCompile Include="src\GLIndexBuffer.cpp" />
+    <ClCompile Include="src\GLShader.cpp" />
+    <ClCompile Include="src\GLVertexArray.cpp" />
+    <ClCompile Include="src\GLVertexBuffer.cpp" />
     <ClCompile Include="src\ImGuiHelper.cpp" />
     <ClCompile Include="src\imgui_impl_dx10.cpp" />
     <ClCompile Include="src\imgui_impl_dx11.cpp" />
@@ -137,7 +157,10 @@
     <ClCompile Include="src\imgui_impl_opengl2.cpp" />
     <ClCompile Include="src\imgui_impl_opengl3.cpp" />
     <ClCompile Include="src\imgui_impl_win32.cpp" />
+    <ClCompile Include="src\mat3.cpp" />
     <ClCompile Include="src\opengl-Window.cpp" />
+    <ClCompile Include="src\Random.cpp" />
+    <ClCompile Include="src\vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\imgui_impl_metal.mm" />
