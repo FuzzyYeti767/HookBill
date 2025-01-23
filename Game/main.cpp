@@ -4,10 +4,11 @@ int main()
 {
 	Engine& engine = Engine::Instance();
 	engine.Init("Fuck You Digipen");
+	HookBill::TestLevel test;
 	while (!engine.ShouldCloseWindow())
 	{
 		
-		HookBill::TestLevel test;
+		
 		Engine::GetGameStateManager().AddGameState(test);
 
 	

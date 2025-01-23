@@ -5,16 +5,17 @@
 #include"color3.h"
 HookBill::TestLevel::TestLevel():key(HookBill::InputKey::Keyboard::A)
 {
-  /*  shader = GLShader("Basic Shader",
-        { {GLShader::VERTEX, "assets/shaders/pass_thru_pos2d_clr.vert"},
-        {GLShader::FRAGMENT, "assets/shaders/basic_vtx_clr_attribute.frag"} });*/
+    shader = GLShader("Basic Shader",
+        { {GLShader::VERTEX, "../assets/shaders/pass_thru_pos2d_clr.vert"},
+        {GLShader::FRAGMENT, "../assets/shaders/basic_vtx_clr_attribute.frag"} });
+    std::cout << "Sex " << '\n';
 }
 
 void HookBill::TestLevel::Load()
 {
 	ImGuiHelper::print_and_save_opengl_settings();
 
-    /*constexpr std::array positions = { vec2{-0.2f, 0.2f}, vec2{-0.2f, 0.6f}, vec2{-0.6f, 0.6f}, vec2{-0.6f, 0.2f} };
+    constexpr std::array positions = { vec2{-0.2f, 0.2f}, vec2{-0.2f, 0.6f}, vec2{-0.6f, 0.6f}, vec2{-0.6f, 0.2f} };
     constexpr auto       positions_byte_size = static_cast<long long>(sizeof(vec2) * positions.size());
     constexpr std::array colors = { color3{1, 1, 1}, color3{1, 0, 0}, color3{0, 1, 0}, color3{0, 0, 1} };
     constexpr auto       colors_byte_size = static_cast<long long>(sizeof(color3) * colors.size());
@@ -47,7 +48,7 @@ void HookBill::TestLevel::Load()
 
     constexpr std::array<unsigned, 6> indices = { 0, 1, 2, 2, 3, 0 };
     GLIndexBuffer                     index_buffer(indices);
-    left_eye_model.SetIndexBuffer(std::move(index_buffer));*/
+    left_eye_model.SetIndexBuffer(std::move(index_buffer));
 
 	
 }
@@ -65,10 +66,12 @@ void HookBill::TestLevel::Draw()
 {
 	glClearColor(0.6f, 0.5f, 0.4f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    /*shader.Use();
+
+    shader.Use();
     left_eye_model.Use();
     GLDrawIndexed(left_eye_model);
-    shader.Use(false);*/
+    left_eye_model.Use(false);
+    shader.Use(false);
 
 
 
@@ -98,4 +101,5 @@ void HookBill::TestLevel::ImGuiDraw()
 
 void HookBill::TestLevel::Unload()
 {
+    std::cout << "sex " << '\n';
 }

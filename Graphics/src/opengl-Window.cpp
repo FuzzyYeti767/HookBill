@@ -2,8 +2,8 @@
 #include"opengl-window.h"
 #include<iostream>
 // settings
-const unsigned int SCR_WIDTH = 1800;
-const unsigned int SCR_HEIGHT = 1600;
+const unsigned int SCR_WIDTH = 1000;
+const unsigned int SCR_HEIGHT = 1000;
 
 
 int HookBill_opengl::create_window(std::string windowname)

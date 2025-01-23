@@ -19,7 +19,7 @@ namespace HookBill
 		std::string GetName() { return "test level"; }
 	private:
 		InputKey key;
-		//GLVertexArray left_eye_model;
-		//GLShader shader;
+		GLVertexArray left_eye_model;
+		GLShader shader;
 	};
 }
