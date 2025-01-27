@@ -41,13 +41,15 @@ void cursor_position_callback([[maybe_unused]] GLFWwindow* window, double xpos, 
 
 
 
-void scroll_callback([[maybe_unused]] GLFWwindow* window, double xoffset, double yoffset) {
+void scroll_callback([[maybe_unused]] GLFWwindow* window, double xoffset, double yoffset)
+{
 	HookBill::Event event(HookBill::Event::Type::MouseScroll, 0, xoffset, yoffset);
 	Engine::GetEventDispatcher().dispatch(event);
 }
 
-void framebuffer_size_callback([[maybe_unused]] GLFWwindow* window, int width, int height) {
-		glViewport(0, 0, width, height);
+void framebuffer_size_callback([[maybe_unused]] GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, width, height);
 	std::cout << "Framebuffer size changed: " << width << "x" << height << std::endl;
 }
 
@@ -128,11 +130,11 @@ namespace HookBill
 
 	}
 
-	int Window::GetHeight()
+	ImVec2 Window::GetWindowSize()
 	{
 		int width, height;
 		glfwGetWindowSize(Get_OpenGL_Window_ptr(), &width, &height);
-		return height;
+		return ImVec2{ static_cast<float>(width),static_cast<float>(height) };
 	}
 
 	void Window::InitializeFrameBuffer(int width, int height)

@@ -107,8 +107,6 @@ void HookBill_opengl::InitializeFrameBuffer(int width, int height)
     // 텍스처를 프레임버퍼에 연결
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
 
-    // 텍스처 크기를 저장
-    texture_width = width;
-    texture_height = height;
+  
 
 }

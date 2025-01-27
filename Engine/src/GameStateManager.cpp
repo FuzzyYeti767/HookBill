@@ -39,7 +39,7 @@ namespace HookBill
 		case State::LOAD:
 			currGameState = nextGameState;
 
-			Engine::GetWindow().InitializeFrameBuffer(1920, 1080);
+			Engine::GetWindow().InitializeFrameBuffer(Engine::GetWindow().GetWindowSize().x,Engine::GetWindow().GetWindowSize().y);
 
 			Engine::GetLogger().LogEvent("Load " + currGameState->GetName());
 			currGameState->Load();
@@ -64,7 +64,7 @@ namespace HookBill
 				ImGui::SetNextWindowPos(viewport->Pos);
 				ImGui::SetNextWindowSize(viewport->Size);
 				ImGui::SetNextWindowViewport(viewport->ID);
-				window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse  /*ImGuiWindowFlags_NoResize*/ | ImGuiWindowFlags_NoMove;
+				window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
 				window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
 
 				
@@ -86,30 +86,25 @@ namespace HookBill
 
 				glBindFramebuffer(GL_FRAMEBUFFER, HookBill_opengl::fbo);
 				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // 장면 지우기
-
 				currGameState->Draw();
-				glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-				ImGui::Begin("Scene View");
+     			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+				
+				ImGui::Begin("Scene");
+				// 창의 크기와 텍스처 비율에 맞춰 이미지를 그릴 수 있음
+				ImVec2 window_size = ImGui::GetWindowSize(); // ImGui 창의 크기 (너비, 높이)
 				ImVec2 pos = ImGui::GetCursorScreenPos();
 				ImGui::GetWindowDrawList()->AddImage(
-					HookBill_opengl::texture,
+					(ImTextureID)(intptr_t)HookBill_opengl::texture,
 					ImVec2(pos.x, pos.y),
-					ImVec2(pos.x +1920, pos.y + 1080),
-					ImVec2(0, 1),
-					ImVec2(1, 0)
+					ImVec2(pos.x + window_size.x, pos.y + window_size.y), // 창 크기에 맞춰 이미지 크기 설정
+					ImVec2(0, 1), // 텍스처 좌측 하단
+					ImVec2(1, 0)  // 텍스처 우측 상단
 				);
-
 				ImGui::End();
-
-
-
-
 
 				currGameState->ImGuiDraw();
 				ImGuiHelper::End(Engine::GetWindow().Get_OpenGL_Window_ptr());
-
-								//	Engine::GetLogger().LogEvent("Updateing !!! ");
+										//	Engine::GetLogger().LogEvent("Updateing !!! ");
 
 			}
 
