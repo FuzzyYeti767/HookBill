@@ -2,8 +2,8 @@
 #include"opengl-window.h"
 #include<iostream>
 // settings
-const unsigned int SCR_WIDTH = 1000;
-const unsigned int SCR_HEIGHT = 1000;
+const unsigned int SCR_WIDTH = 1920;
+const unsigned int SCR_HEIGHT = 1080;
 
 
 int HookBill_opengl::create_window(std::string windowname)
@@ -49,6 +49,7 @@ int HookBill_opengl::create_window(std::string windowname)
 void HookBill_opengl::update_window()
 {
     glfwPollEvents();
+
     //glfwSwapBuffers(window_ptr);
 
    
@@ -81,3 +82,33 @@ void HookBill_opengl::shutdown_window()
 
 
 
+void HookBill_opengl::InitializeFrameBuffer(int width, int height)
+{
+   
+    // FBO 생성
+    glGenFramebuffers(1, &fbo);
+    glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+
+    // 텍스처 생성 (프레임버퍼의 렌더링 결과를 담을 텍스처)
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+    // 깊이 버퍼 생성
+    glGenRenderbuffers(1, &rbo);
+    glBindRenderbuffer(GL_RENDERBUFFER, rbo);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, width, height);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rbo);
+
+    // 텍스처를 프레임버퍼에 연결
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
+
+    // 텍스처 크기를 저장
+    texture_width = width;
+    texture_height = height;
+
+}

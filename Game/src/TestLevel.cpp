@@ -5,16 +5,18 @@
 #include"color3.h"
 HookBill::TestLevel::TestLevel():key(HookBill::InputKey::Keyboard::A)
 {
+    Engine::GetLogger().LogEvent("Creating TestLevel..");
     shader = GLShader("Basic Shader",
         { {GLShader::VERTEX, "../assets/shaders/pass_thru_pos2d_clr.vert"},
         {GLShader::FRAGMENT, "../assets/shaders/basic_vtx_clr_attribute.frag"} });
-    std::cout << "Sex " << '\n';
+  
 }
 
 void HookBill::TestLevel::Load()
 {
 	ImGuiHelper::print_and_save_opengl_settings();
 
+    
     constexpr std::array positions = { vec2{-0.2f, 0.2f}, vec2{-0.2f, 0.6f}, vec2{-0.6f, 0.6f}, vec2{-0.6f, 0.2f} };
     constexpr auto       positions_byte_size = static_cast<long long>(sizeof(vec2) * positions.size());
     constexpr std::array colors = { color3{1, 1, 1}, color3{1, 0, 0}, color3{0, 1, 0}, color3{0, 0, 1} };
@@ -80,6 +82,7 @@ void HookBill::TestLevel::Draw()
 void HookBill::TestLevel::ImGuiDraw()
 {
 
+
 	ImGui::Begin("Program Info");
 	{
 		
@@ -94,6 +97,8 @@ void HookBill::TestLevel::ImGuiDraw()
 		}
 	}
 	ImGui::End();
+
+
 
 
 	

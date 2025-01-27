@@ -1,6 +1,8 @@
 #pragma once
 #include <unordered_map>
 #include<string>
+
+#include "imgui.h"
 #include"glad/glad.h"
 struct GLFWwindow;
 namespace ImGuiHelper
@@ -110,6 +112,25 @@ namespace ImGuiHelper
 
 
 
+    }
+
+
+
+    inline void ShowDockSpace()
+    {
+        static ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
+
+        ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking;
+        ImGui::Begin("DockSpace Demo", nullptr, window_flags);
+
+        ImGuiIO& io = ImGui::GetIO();
+        if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
+        {
+            ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
+            ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
+        }
+
+        ImGui::End();
     }
 
 }

@@ -14,12 +14,17 @@ namespace HookBill_opengl
 	 bool ShouldCloseWindow();
 	 void shutdown_window();
 	 void set_window_user_pointer(void* user_data);
+	 void InitializeFrameBuffer(int width, int height);
 
-	
+	 
+
 
 	 inline GLFWwindow* window_ptr;
-
-
+	 inline GLuint fbo;
+	 inline GLuint texture;
+	 inline GLuint rbo;
+	 inline GLuint  texture_width;
+	 inline GLuint  texture_height;
 
 
 }

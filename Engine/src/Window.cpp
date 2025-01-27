@@ -128,6 +128,18 @@ namespace HookBill
 
 	}
 
+	int Window::GetHeight()
+	{
+		int width, height;
+		glfwGetWindowSize(Get_OpenGL_Window_ptr(), &width, &height);
+		return height;
+	}
+
+	void Window::InitializeFrameBuffer(int width, int height)
+	{
+		HookBill_opengl::InitializeFrameBuffer(width, height);
+	}
+
 	void Window::addEventListener(Event::Type type, const std::function<void(const Event&)>& callback)
 	{
 		HookBill::EventListener listener(type, callback);
