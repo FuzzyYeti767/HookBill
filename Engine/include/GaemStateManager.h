@@ -17,7 +17,7 @@ namespace HookBill
 		void Shutdown();
 		void ReloadState();
 		bool HasGameEnded() { return state == State::EXIT; }
-
+		GameState* GetCurrentState() { return currGameState; }
 	private:
 		enum class State {
 			START,

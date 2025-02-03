@@ -82,7 +82,7 @@ void HookBill::TestLevel::Draw()
 void HookBill::TestLevel::ImGuiDraw()
 {
 
-
+#ifdef _DEBUG
 	ImGui::Begin("Program Info");
 	{
 		
@@ -97,6 +97,7 @@ void HookBill::TestLevel::ImGuiDraw()
 		}
 	}
 	ImGui::End();
+#endif
 
 
 
