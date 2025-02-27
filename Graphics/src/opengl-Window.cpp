@@ -18,12 +18,13 @@ int HookBill_opengl::create_window(std::string windowname)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
+    //glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
 
 
     // glfw window creation
     // --------------------
     window_ptr = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT,windowname.c_str(), nullptr, nullptr);
+    //glfwSetWindowTitle(window_ptr, ""); // 창 제목 제거
     if (window_ptr == nullptr)
     {
         std::cout << "Failed to create GLFW window!" << std::endl;

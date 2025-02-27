@@ -19,7 +19,9 @@ void Engine::update_timing()
 void Engine::Init(std::string windowName)
 {
 	GetLogger().LogEvent("Initialize Engine");
-	window.Init("MOM");
+	window.Init(windowName);
+	
+
 }
 
 void Engine::Shutdown()

@@ -19,6 +19,48 @@
     <Filter Include="CS200_OPENGL_CODE">
       <UniqueIdentifier>{3aeb9c35-a8f9-410b-a458-a9670c6bd7d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{2452fcb7-3d72-4e94-a698-5caa06c233f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\angle">
+      <UniqueIdentifier>{c3ea89f2-8f3f-470d-9493-c667459b07f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\color">
+      <UniqueIdentifier>{7b206aa5-908f-4210-99a7-070a7b2d6a5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\glCheck">
+      <UniqueIdentifier>{72554aa3-0332-473b-8257-53b75e02ee3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\handle">
+      <UniqueIdentifier>{cc9ceaf1-8a49-462a-b52d-cdfb3ae354fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\IndexBuffer">
+      <UniqueIdentifier>{27e55ad4-60ca-4bec-bc1c-6b738edcb25f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\Shader">
+      <UniqueIdentifier>{9631e865-1e6c-47cf-aff1-cb5348f65e88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\VertexArray">
+      <UniqueIdentifier>{6d61fbaf-40fe-4189-b155-670557153701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\VertexBuffer">
+      <UniqueIdentifier>{bdcc97dd-0f20-4f04-bdac-ecce5995bf0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\mat3">
+      <UniqueIdentifier>{d06e596e-5ef3-4ff3-b319-a4cf0e5a98a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\not_null">
+      <UniqueIdentifier>{13788cca-5912-4a22-8f25-bbee054176ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\ownership">
+      <UniqueIdentifier>{42abeafd-e19e-480b-af23-ea67b6421c52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\Random">
+      <UniqueIdentifier>{cba12197-3128-49f5-a80d-7b87408be469}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS200_OPENGL_CODE\Vector">
+      <UniqueIdentifier>{c61cdb83-2bfa-4cee-8d74-bf50ca9fa833}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ImGuiHelper.h">
@@ -85,46 +127,46 @@
       <Filter>ImGui\backend</Filter>
     </ClInclude>
     <ClInclude Include="include\angles.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\angle</Filter>
     </ClInclude>
     <ClInclude Include="include\color3.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\color</Filter>
     </ClInclude>
     <ClInclude Include="include\glCheck.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\glCheck</Filter>
     </ClInclude>
     <ClInclude Include="include\GLHandle.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\handle</Filter>
     </ClInclude>
     <ClInclude Include="include\GLIndexBuffer.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\IndexBuffer</Filter>
     </ClInclude>
     <ClInclude Include="include\GLShader.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\Shader</Filter>
     </ClInclude>
     <ClInclude Include="include\GLVertexArray.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\VertexArray</Filter>
     </ClInclude>
     <ClInclude Include="include\GLVertexBuffer.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\VertexBuffer</Filter>
     </ClInclude>
     <ClInclude Include="include\mat3.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\mat3</Filter>
     </ClInclude>
     <ClInclude Include="include\not_null.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\not_null</Filter>
     </ClInclude>
     <ClInclude Include="include\owner.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\ownership</Filter>
     </ClInclude>
     <ClInclude Include="include\Random.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\Random</Filter>
     </ClInclude>
     <ClInclude Include="include\vec2.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\Vector</Filter>
     </ClInclude>
     <ClInclude Include="include\vec3.h">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\Vector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -177,28 +219,28 @@
       <Filter>ImGui\backend</Filter>
     </ClCompile>
     <ClCompile Include="src\glCheck.cpp">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\glCheck</Filter>
     </ClCompile>
     <ClCompile Include="src\GLIndexBuffer.cpp">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\IndexBuffer</Filter>
     </ClCompile>
     <ClCompile Include="src\GLShader.cpp">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\Shader</Filter>
     </ClCompile>
     <ClCompile Include="src\GLVertexArray.cpp">
-      <Filter>CS200_OPENGL_CODE</Filter>
-    </ClCompile>
-    <ClCompile Include="src\mat3.cpp">
-      <Filter>CS200_OPENGL_CODE</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Random.cpp">
-      <Filter>CS200_OPENGL_CODE</Filter>
-    </ClCompile>
-    <ClCompile Include="src\vec2.cpp">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\VertexArray</Filter>
     </ClCompile>
     <ClCompile Include="src\GLVertexBuffer.cpp">
-      <Filter>CS200_OPENGL_CODE</Filter>
+      <Filter>CS200_OPENGL_CODE\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mat3.cpp">
+      <Filter>CS200_OPENGL_CODE\mat3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Random.cpp">
+      <Filter>CS200_OPENGL_CODE\Random</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vec2.cpp">
+      <Filter>CS200_OPENGL_CODE\Vector</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

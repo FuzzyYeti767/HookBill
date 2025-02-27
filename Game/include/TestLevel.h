@@ -4,7 +4,8 @@
 #include"ImGuiHelper.h"
 #include"GLVertexArray.h"
 #include <GLShader.h>
-
+#include<string>
+#include"entt.hpp"
 namespace HookBill
 {
 	class TestLevel :public GameState
@@ -18,8 +19,10 @@ namespace HookBill
 		void Unload();
 		std::string GetName() { return "test level"; }
 	private:
-		InputKey key;
+		
+		InputKey Testkey;
 		GLVertexArray left_eye_model;
 		GLShader shader;
+		
 	};
 }

@@ -3,62 +3,90 @@
 #include<array>
 #include"vec2.h"
 #include"color3.h"
-HookBill::TestLevel::TestLevel():key(HookBill::InputKey::Keyboard::A)
+HookBill::TestLevel::TestLevel():Testkey(HookBill::InputKey::Keyboard::Space)
 {
     Engine::GetLogger().LogEvent("Creating TestLevel..");
-    shader = GLShader("Basic Shader",
-        { {GLShader::VERTEX, "../assets/shaders/pass_thru_pos2d_clr.vert"},
-        {GLShader::FRAGMENT, "../assets/shaders/basic_vtx_clr_attribute.frag"} });
-  
+    shader = GLShader("Basic Shader",{ {GLShader::VERTEX, "../assets/shaders/pass_thru_pos2d_clr.vert"},{GLShader::FRAGMENT, "../assets/shaders/basic_vtx_clr_attribute.frag"} });
+    
+     
 }
 
 void HookBill::TestLevel::Load()
 {
-	ImGuiHelper::print_and_save_opengl_settings();
 
-    
-    constexpr std::array positions = { vec2{-0.2f, 0.2f}, vec2{-0.2f, 0.6f}, vec2{-0.6f, 0.6f}, vec2{-0.6f, 0.2f} };
-    constexpr auto       positions_byte_size = static_cast<long long>(sizeof(vec2) * positions.size());
-    constexpr std::array colors = { color3{1, 1, 1}, color3{1, 0, 0}, color3{0, 1, 0}, color3{0, 0, 1} };
-    constexpr auto       colors_byte_size = static_cast<long long>(sizeof(color3) * colors.size());
-    constexpr auto       buffer_size = positions_byte_size + colors_byte_size;
-    GLVertexBuffer       buffer(buffer_size);
-    buffer.SetData(std::span(positions));
-    buffer.SetData(std::span(colors), positions_byte_size);
+	ImGuiHelper::print_and_save_opengl_settings();
+    std::vector<vec2> pos_vtx =
+    {
+        //Fisrt Triangle
+        vec2{0.0f,0.75f},  //0
+        vec2{-0.7f,-0.55f}, //1
+        vec2{0.7f,-0.55f},  //2
+
+        ////Second Triangle
+        vec2{-0.7f,0.55f}, //3
+        vec2{0.7f,0.55f},  //4
+        vec2{0.0f,-0.75f},  //5
+
+    };
+    std::vector<color3>clr_vtx =
+    {
+        color3{1.0f,0.0f,1.0f},
+        color3{0.0f,1.0f,1.0f},
+        color3{0.0f,0.0f,0.f},
+
+        color3{0.2f,1.0f,0.5f},
+        color3{0.4f,0.6f,0.1f},
+        color3{0.3f,0.2f,0.7f}
+    };
+    std::vector<GLuint>idx_vtx =
+    {
+        0,
+        1,
+        2,
+
+        //Second Triangle
+        3,
+        4,
+        5,
+    };
+
+
+
+
+
 
     GLAttributeLayout position;
-    position.component_type = GLAttributeLayout::Float;
     position.component_dimension = GLAttributeLayout::_2;
-    position.normalized = true;
-    position.vertex_layout_location = 0;
-    position.stride = sizeof(vec2);
+    position.component_type = GLAttributeLayout::Float;
+    position.normalized = false;
     position.offset = 0;
     position.relative_offset = 0;
+    position.stride = sizeof(vec2);
+    position.vertex_layout_location = 0;
+
 
     GLAttributeLayout color;
     color.component_type = GLAttributeLayout::Float;
     color.component_dimension = GLAttributeLayout::_3;
-    color.normalized = true;
-    color.vertex_layout_location = 1;
+    color.normalized = false;
+    color.vertex_layout_location = 1; // 2nd field of Vertex
     color.stride = sizeof(color3);
-    color.offset = positions_byte_size;
+    color.offset = 0; // starts after the position bytes
     color.relative_offset = 0;
 
-    left_eye_model.AddVertexBuffer(std::move(buffer), { position, color });
+    GLIndexBuffer index(idx_vtx);
 
+    left_eye_model.AddVertexBuffer(GLVertexBuffer(std::span{ pos_vtx }), { position });
+    left_eye_model.AddVertexBuffer(GLVertexBuffer(std::span{ clr_vtx }), { color });
+    left_eye_model.SetIndexBuffer(std::move(index));
     left_eye_model.SetPrimitivePattern(GLPrimitive::Triangles);
-
-    constexpr std::array<unsigned, 6> indices = { 0, 1, 2, 2, 3, 0 };
-    GLIndexBuffer                     index_buffer(indices);
-    left_eye_model.SetIndexBuffer(std::move(index_buffer));
-
 	
 }
 
 void HookBill::TestLevel::Update()
 {
 	
-	if (key.IsKeyDown())
+	if (Testkey.IsKeyDown())
 	{
 		Engine::GetLogger().LogEvent("Key released ");
 	}

@@ -24,7 +24,7 @@ namespace ImGuiHelper
             io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
             io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
         }
-
+  
         // Setup Dear ImGui style
         ImGui::StyleColorsDark();
 

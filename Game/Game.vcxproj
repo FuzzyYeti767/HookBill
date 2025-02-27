@@ -42,6 +42,7 @@
     <Import Project="..\props-page\spdlog.props" />
     <Import Project="..\props-page\ImGui.props" />
     <Import Project="..\props-page\GLFW.props" />
+    <Import Project="..\props-page\entt.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -49,15 +50,15 @@
     <Import Project="..\props-page\spdlog.props" />
     <Import Project="..\props-page\ImGui.props" />
     <Import Project="..\props-page\GLFW.props" />
+    <Import Project="..\props-page\entt.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>$(SolutionDir)extern\glfw-3.4\lib;C:\Dev\HookBill\extern\spdlog\include;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends;$(ProjectDir)include</IncludePath>
-    <ExternalIncludePath>C:\Dev\HookBill\extern\spdlog\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends;$(ProjectDir)include;$(SolutionDir)extern\entt\single_include\entt</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends;$(ProjectDir)include</IncludePath>
+    <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends;$(ProjectDir)include;$(SolutionDir)extern\entt\single_include\entt</IncludePath>
     <LibraryPath>$(SolutionDir)extern\glfw-3.4\lib;C:\Dev\HookBill\extern\spdlog\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -67,7 +68,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalOptions>/NODEFAULTLIB  /wd4201 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/NODEFAULTLIB  /wd4201 /wd4267 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -85,7 +86,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalOptions>/NODEFAULTLIB  /wd4201 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/NODEFAULTLIB  /wd4201 /wd4267 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>

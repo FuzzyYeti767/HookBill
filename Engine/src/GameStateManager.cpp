@@ -6,7 +6,7 @@ namespace HookBill
 	{
 		ImGuiWindowFlags window_flags = /*ImGuiWindowFlags_MenuBar |*/ ImGuiWindowFlags_NoDocking;
 
-		//이거 있어야 전체를 독스페이스로 씀 
+		//Need This code for ImGui Dock Space
 		const ImGuiViewport* viewport = ImGui::GetMainViewport();
 		ImGui::SetNextWindowPos(viewport->Pos);
 		ImGui::SetNextWindowSize(viewport->Size);
@@ -37,25 +37,21 @@ namespace HookBill
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 		ImGui::Begin("Scene");
+
 		// 창의 크기와 텍스처 비율에 맞춰 이미지를 그릴 수 있음
-		ImVec2 window_size = ImGui::GetWindowSize(); // ImGui 창의 크기 (너비, 높이)
+		ImVec2 window_size = ImGui::GetWindowSize(); // size of ImGui Window
 		ImVec2 pos = ImGui::GetCursorScreenPos();
 		ImGui::GetWindowDrawList()->AddImage(
-			(ImTextureID)(intptr_t)HookBill_opengl::texture,
+			static_cast<ImTextureID>(HookBill_opengl::texture),
 			ImVec2(pos.x, pos.y),
 			ImVec2(pos.x + window_size.x, pos.y + window_size.y), // 창 크기에 맞춰 이미지 크기 설정
-			ImVec2(0, 1), // 텍스처 좌측 하단
-			ImVec2(1, 0)  // 텍스처 우측 상단
+			ImVec2(0, 1),  // Left Bottom of texture
+			ImVec2(1, 0)   // Right Top of texture
 		);
 		ImGui::End();
 	}
 
-	ImVec2 ToImGuiCoordinates(float glfwX, float glfwY, float screenHeight)
-	{
-		// GLFW의 Y 좌표는 화면의 위쪽에서 증가하므로, ImGui에서는 Y 좌표를 반전시켜야 합니다.
-		float imguiY = screenHeight - glfwY;
-		return ImVec2(glfwX, imguiY);
-	}
+
 	GameStateManager::GameStateManager() :currGameState(nullptr),
 		nextGameState(nullptr), state(State::START)
 	{

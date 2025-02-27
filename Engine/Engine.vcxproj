@@ -25,7 +25,6 @@
     <ClInclude Include="include\GameState.h" />
     <ClInclude Include="include\Input.h" />
     <ClInclude Include="include\Logger.h" />
-    <ClInclude Include="include\test.h" />
     <ClInclude Include="include\Timing.h" />
     <ClInclude Include="include\Window.h" />
   </ItemGroup>
@@ -34,7 +33,6 @@
     <ClCompile Include="src\GameStateManager.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Logger.cpp" />
-    <ClCompile Include="src\test.cpp" />
     <ClCompile Include="src\Timing.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
@@ -70,6 +68,7 @@
     <Import Project="..\props-page\Graphics_Dependency.props" />
     <Import Project="..\props-page\ImGui.props" />
     <Import Project="..\props-page\GLFW.props" />
+    <Import Project="..\props-page\entt.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -77,6 +76,7 @@
     <Import Project="..\props-page\Graphics_Dependency.props" />
     <Import Project="..\props-page\ImGui.props" />
     <Import Project="..\props-page\GLFW.props" />
+    <Import Project="..\props-page\entt.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
