@@ -1,7 +1,10 @@
 [submodule "extern/spdlog"]
-	path = extern/spdlog
-	url = https://github.com/gabime/spdlog.git
+    path = extern/spdlog
+    url = https://github.com/gabime/spdlog.git
 [submodule "extern/imgui"]
-	path = extern/imgui
-	url = https://github.com/ocornut/imgui.git
-	branch = docking
+    path = extern/imgui
+    url = https://github.com/ocornut/imgui.git
+    branch = docking
+[submodule "extern/entt"]
+	path = extern/entt
+	url = https://github.com/skypjack/entt.git
