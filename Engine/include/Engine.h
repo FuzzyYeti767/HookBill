@@ -20,11 +20,15 @@ public:
     void Update();
     bool HasGameEnded();
     bool ShouldCloseWindow();
- 
+    void RegisterSystem(std::function<void()> system)
+    {
+        engine_systems.push_back(system);
+    }
 private:
     Engine();
     ~Engine();
 
+	entt::registry registry;
     HookBill::Logger logger;
     HookBill::Window window;
     HookBill::GameStateManager game_state_manager;
@@ -34,7 +38,8 @@ private:
 
     //Calculate 
 
-
+  
+    std::vector<std::function<void()>> engine_systems;
     void update_timing();
   
 };

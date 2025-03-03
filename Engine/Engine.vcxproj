@@ -27,6 +27,7 @@
     <ClInclude Include="include\Logger.h" />
     <ClInclude Include="include\Timing.h" />
     <ClInclude Include="include\Window.h" />
+    <ClInclude Include="include\WindowSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine.cpp" />

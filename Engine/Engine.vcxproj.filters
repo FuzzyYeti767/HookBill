@@ -25,11 +25,8 @@
     <Filter Include="Timing">
       <UniqueIdentifier>{1c8bc7c1-4ef1-46fc-833b-e92fb4dcc9a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="EngineComponent">
-      <UniqueIdentifier>{d24002ab-e813-4eec-b586-74c8536a7612}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="EngineComponent\Model">
-      <UniqueIdentifier>{35fa83b5-1851-47a7-94a8-590a77724270}</UniqueIdentifier>
+    <Filter Include="EngineSystem">
+      <UniqueIdentifier>{a5bcd364-dcb8-46a9-9c8b-d579c2877386}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +53,9 @@
     </ClInclude>
     <ClInclude Include="include\Timing.h">
       <Filter>Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="include\WindowSystem.h">
+      <Filter>EngineSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
