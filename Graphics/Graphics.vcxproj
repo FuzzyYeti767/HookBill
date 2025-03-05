@@ -109,6 +109,7 @@
     <ClInclude Include="include\GLHandle.h" />
     <ClInclude Include="include\GLIndexBuffer.h" />
     <ClInclude Include="include\GLShader.h" />
+    <ClInclude Include="include\GLTexture.h" />
     <ClInclude Include="include\GLVertexArray.h" />
     <ClInclude Include="include\GLVertexBuffer.h" />
     <ClInclude Include="include\imconfig.h" />
@@ -124,6 +125,7 @@
     <ClInclude Include="include\opengl-window.h" />
     <ClInclude Include="include\owner.h" />
     <ClInclude Include="include\Random.h" />
+    <ClInclude Include="include\stb_image.h" />
     <ClInclude Include="include\vec2.h" />
     <ClInclude Include="include\vec3.h" />
     <ClInclude Include="src\imgui_impl_dx10.h" />
@@ -144,10 +146,12 @@
     <ClCompile Include="include\imgui_draw.cpp" />
     <ClCompile Include="include\imgui_tables.cpp" />
     <ClCompile Include="include\imgui_widgets.cpp" />
+    <ClCompile Include="source\stb_image_impl.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\glCheck.cpp" />
     <ClCompile Include="src\GLIndexBuffer.cpp" />
     <ClCompile Include="src\GLShader.cpp" />
+    <ClCompile Include="src\GLTexture.cpp" />
     <ClCompile Include="src\GLVertexArray.cpp" />
     <ClCompile Include="src\GLVertexBuffer.cpp" />
     <ClCompile Include="src\ImGuiHelper.cpp" />

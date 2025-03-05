@@ -61,6 +61,12 @@
     <Filter Include="CS200_OPENGL_CODE\Vector">
       <UniqueIdentifier>{c61cdb83-2bfa-4cee-8d74-bf50ca9fa833}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CS200_OPENGL_CODE\Texture">
+      <UniqueIdentifier>{859a93ab-0c84-4f3e-bf1a-093e6baebe32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stb_image">
+      <UniqueIdentifier>{08bc6c47-80da-48bc-a34b-ab8107da267d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ImGuiHelper.h">
@@ -168,6 +174,12 @@
     <ClInclude Include="include\vec3.h">
       <Filter>CS200_OPENGL_CODE\Vector</Filter>
     </ClInclude>
+    <ClInclude Include="include\GLTexture.h">
+      <Filter>CS200_OPENGL_CODE\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stb_image.h">
+      <Filter>stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ImGuiHelper.cpp">
@@ -241,6 +253,12 @@
     </ClCompile>
     <ClCompile Include="src\vec2.cpp">
       <Filter>CS200_OPENGL_CODE\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLTexture.cpp">
+      <Filter>CS200_OPENGL_CODE\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="source\stb_image_impl.cpp">
+      <Filter>stb_image</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
