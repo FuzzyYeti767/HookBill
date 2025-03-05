@@ -6,6 +6,7 @@
 #include <GLShader.h>
 #include<string>
 #include"entt.hpp"
+#include"GLTexture.h"
 namespace HookBill
 {
 	class TestLevel :public GameState
@@ -24,6 +25,7 @@ namespace HookBill
 		InputKey Testkey;
 		GLVertexArray left_eye_model;
 		GLShader shader;
+		GLTexture test_texture;
 		
 	};
 }

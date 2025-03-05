@@ -7,7 +7,10 @@ HookBill::TestLevel::TestLevel():Testkey(HookBill::InputKey::Keyboard::Space)
 {
     Engine::GetLogger().LogEvent("Creating TestLevel..");
     shader = GLShader("Basic Shader",{ {GLShader::VERTEX, "../assets/shaders/pass_thru_pos2d_clr.vert"},{GLShader::FRAGMENT, "../assets/shaders/basic_vtx_clr_attribute.frag"} });
-    
+    if (const bool loaded = test_texture.LoadFromFileImage("../assets/image/img.jpg"); !loaded)
+    {
+        throw std::runtime_error{ "Failed to load the duck.png" };
+    }
      
 }
 
@@ -18,25 +21,29 @@ void HookBill::TestLevel::Load()
     std::vector<vec2> pos_vtx =
     {
         //Fisrt Triangle
-        vec2{0.0f,0.75f},  //0
-        vec2{-0.7f,-0.55f}, //1
-        vec2{0.7f,-0.55f},  //2
-
-        ////Second Triangle
-        vec2{-0.7f,0.55f}, //3
-        vec2{0.7f,0.55f},  //4
-        vec2{0.0f,-0.75f},  //5
-
+        vec2{1,-1},  //0
+        vec2{1,1}, //1
+        vec2{-1,1},  //2
+        vec2{-1,-1}
     };
+    std::vector<vec2> texture_vtx =
+    {
+        //Fisrt Triangle
+        vec2{1.0f,0.0f},  //0
+        vec2{1.0f,1.0f}, //1
+        vec2{0.0,1.0f},  //2
+        vec2{0.0,0.0f},  //2
+    };
+
+
+
     std::vector<color3>clr_vtx =
     {
         color3{1.0f,0.0f,1.0f},
         color3{0.0f,1.0f,1.0f},
         color3{0.0f,0.0f,0.f},
-
-        color3{0.2f,1.0f,0.5f},
-        color3{0.4f,0.6f,0.1f},
-        color3{0.3f,0.2f,0.7f}
+    	color3{0.0f,0.7f,0.f},
+      
     };
     std::vector<GLuint>idx_vtx =
     {
@@ -44,10 +51,9 @@ void HookBill::TestLevel::Load()
         1,
         2,
 
-        //Second Triangle
+        2,
         3,
-        4,
-        5,
+        0
     };
 
 
@@ -65,6 +71,16 @@ void HookBill::TestLevel::Load()
     position.vertex_layout_location = 0;
 
 
+    GLAttributeLayout texture;
+    texture.component_dimension = GLAttributeLayout::_2;
+    texture.component_type = GLAttributeLayout::Float;
+    texture.normalized = false;
+    texture.offset = 0;
+    texture.relative_offset = 0;
+    texture.stride = sizeof(vec2);
+    texture.vertex_layout_location = 2;
+
+
     GLAttributeLayout color;
     color.component_type = GLAttributeLayout::Float;
     color.component_dimension = GLAttributeLayout::_3;
@@ -78,6 +94,7 @@ void HookBill::TestLevel::Load()
 
     left_eye_model.AddVertexBuffer(GLVertexBuffer(std::span{ pos_vtx }), { position });
     left_eye_model.AddVertexBuffer(GLVertexBuffer(std::span{ clr_vtx }), { color });
+    left_eye_model.AddVertexBuffer(GLVertexBuffer(std::span{ texture_vtx }), { texture });
     left_eye_model.SetIndexBuffer(std::move(index));
     left_eye_model.SetPrimitivePattern(GLPrimitive::Triangles);
 	
@@ -96,8 +113,9 @@ void HookBill::TestLevel::Draw()
 {
 	glClearColor(0.6f, 0.5f, 0.4f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+    //test_texture.UseForSlot(0);
     shader.Use();
+    test_texture.UseForSlot(0);
     left_eye_model.Use();
     GLDrawIndexed(left_eye_model);
     left_eye_model.Use(false);
