@@ -11,6 +11,10 @@ HookBill::TestLevel::TestLevel():Testkey(HookBill::InputKey::Keyboard::Space)
     {
         throw std::runtime_error{ "Failed to load the duck.png" };
     }
+    if (const bool loaded = test_texture2.LoadFromFileImage("../assets/image/Load_Hail.jpg"); !loaded)
+    {
+        throw std::runtime_error{ "Failed to load the duck.png" };
+    }
      
 }
 
@@ -115,7 +119,8 @@ void HookBill::TestLevel::Draw()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     //test_texture.UseForSlot(0);
     shader.Use();
-    test_texture.UseForSlot(0);
+    test_texture.UseForSlot(11, shader, "uTex2d");
+    test_texture2.UseForSlot(12, shader,"uTex2d1");
     left_eye_model.Use();
     GLDrawIndexed(left_eye_model);
     left_eye_model.Use(false);

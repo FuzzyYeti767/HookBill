@@ -5,7 +5,7 @@
  */
 #include <array>
 #include <filesystem>
-
+#include <GLShader.h>
 #include "glad/glad.h"
 #include "GLHandle.h"
 #include<stb_image.h>
@@ -29,7 +29,7 @@ public:
 
     [[nodiscard]] bool LoadFromMemory(int image_width, int image_height, const RGBA* colors) noexcept;
 
-    void UseForSlot(unsigned int texture_unit) const noexcept;
+    void UseForSlot(unsigned int texture_unit,GLShader&shader,std::string sampler_name) const noexcept;
 
     [[nodiscard]] unsigned int GetHandle() const noexcept
     {

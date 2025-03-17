@@ -165,7 +165,9 @@ void GLTexture::SetWrapping(Wrapping how_to_wrap, Coordinate coord) noexcept
     glCheck(glTextureParameteri(texture_handle, repeat_way, how_to_wrap));
 }
 
-void GLTexture::UseForSlot(unsigned texture_unit) const noexcept
+void GLTexture::UseForSlot(unsigned texture_unit,GLShader&shader,std::string sampler_name) const noexcept
 {
     glCheck(glBindTextureUnit(texture_unit, texture_handle));
+    GLuint texUniformLocation = glGetUniformLocation(shader.program_handle, sampler_name.c_str());
+    glUniform1i(texUniformLocation, texture_unit);
 }

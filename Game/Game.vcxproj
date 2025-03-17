@@ -54,12 +54,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>$(SolutionDir)extern\glfw-3.4\lib;C:\Dev\HookBill\extern\spdlog\include;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)lib\Debug;C:\Dev\HookBill\extern\spdlog\include;$(LibraryPath)</LibraryPath>
     <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends;$(ProjectDir)include;$(SolutionDir)extern\entt\single_include\entt</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)Graphics\include;$(SolutionDir)Engine\include;$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\imgui\backends;$(ProjectDir)include;$(SolutionDir)extern\entt\single_include\entt</IncludePath>
-    <LibraryPath>$(SolutionDir)extern\glfw-3.4\lib;C:\Dev\HookBill\extern\spdlog\include;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)lib\Release;C:\Dev\HookBill\extern\spdlog\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

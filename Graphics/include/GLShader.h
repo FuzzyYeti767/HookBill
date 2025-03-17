@@ -64,9 +64,9 @@ public:
     void SendUniform(std::string_view name, std::span<const float, 2 * 2> mat, Transpose transpose) const;
     void SendUniform(std::string_view name, std::span<const float, 3 * 3> mat, Transpose transpose = NO_TRANSPOSE) const;
     void SendUniform(std::string_view name, std::span<const float, 4 * 4> mat, Transpose transpose = NO_TRANSPOSE) const;
-
-private:
     GLHandle                                        program_handle = 0;
+private:
+  
     std::string                                     shader_name{};
     mutable std::map<std::string, int, std::less<>> uniforms{};
 
