@@ -7,7 +7,7 @@ HookBill::TestLevel::TestLevel():Testkey(HookBill::InputKey::Keyboard::Space)
 {
     Engine::GetLogger().LogEvent("Creating TestLevel..");
     shader = GLShader("Basic Shader",{ {GLShader::VERTEX, "../assets/shaders/pass_thru_pos2d_clr.vert"},{GLShader::FRAGMENT, "../assets/shaders/basic_vtx_clr_attribute.frag"} });
-    if (const bool loaded = test_texture.LoadFromFileImage("../assets/image/img.jpg"); !loaded)
+    if (const bool loaded = test_texture.LoadFromFileImage("../assets/image/comet.jpg"); !loaded)
     {
         throw std::runtime_error{ "Failed to load the duck.png" };
     }

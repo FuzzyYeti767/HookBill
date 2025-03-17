@@ -11,5 +11,5 @@ void main()
 {
     vec4 color_1 = texture(uTex2d,fVertexTextureCordinate);
     vec4 color_2 = texture(uTex2d1,fVertexTextureCordinate);
-    fFragClr = color_2*color_1;
+    fFragClr = color_2;
 }
