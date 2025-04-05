@@ -9,6 +9,9 @@ Engine::Engine():logger(HookBill::Logger::Severity::Verbose, true)
 
 Engine::~Engine()
 {
+	GetLogger().LogEvent("Shut Down Engine");
+	Engine::GetShaderManager().Clear();
+
 	GetWindow().ShutDown();
 }
 
@@ -19,6 +22,7 @@ void Engine::Init(std::string windowName)
 	GetLogger().LogEvent("Initialize Engine");
 	window.Init(windowName);
 	RegisterSystem([]() { Engine::GetInput().Update(); });
+	RegisterSystem([]() { Engine::GetShaderManager().Update(); });
 	RegisterSystem([]() { Engine::GetGameStateManager().Update(); });
 	RegisterSystem([]() { Engine::GetWindow().Update(); });
 	RegisterSystem([]() { Engine::GetTiming().update_timing(); });

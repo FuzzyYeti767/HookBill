@@ -2,6 +2,8 @@
 #include"Window.h"
 #include"Logger.h"
 #include"GaemStateManager.h"
+#include"TextureManager.h"
+#include"ShaderManager.h"
 #include"event.h"
 #include"Input.h"
 #include"Timing.h"
@@ -15,6 +17,8 @@ public:
     static HookBill::EventDispatcher& GetEventDispatcher() { return Instance().event_dispatcher; }
     static HookBill::Input& GetInput() { return Instance().input; }
     static HookBill::Timing& GetTiming() { return Instance().timing; }
+    static HookBill::TextureManager& GetTextureManager() { return Instance().texture_manager; }
+    static HookBill::ShaderManager& GetShaderManager() { return Instance().shader_manager; }
     void Init(std::string windowName);
     void Shutdown();
     void Update();
@@ -35,7 +39,8 @@ private:
     HookBill::EventDispatcher event_dispatcher;
     HookBill::Input input;
     HookBill::Timing timing;
-
+    HookBill::TextureManager texture_manager;
+    HookBill::ShaderManager shader_manager;
     //Calculate 
 
   

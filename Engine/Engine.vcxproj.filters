@@ -28,6 +28,15 @@
     <Filter Include="EngineSystem">
       <UniqueIdentifier>{a5bcd364-dcb8-46a9-9c8b-d579c2877386}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TextureManager">
+      <UniqueIdentifier>{991de914-c79f-474e-843b-713cbf6082c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ShaderManager">
+      <UniqueIdentifier>{2f9de10d-b283-44ea-b2c0-5aac19a7163b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ShaderWatcher">
+      <UniqueIdentifier>{bbf38762-e274-4ea0-a562-a23147a0bc33}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Logger.h">
@@ -57,6 +66,15 @@
     <ClInclude Include="include\WindowSystem.h">
       <Filter>EngineSystem</Filter>
     </ClInclude>
+    <ClInclude Include="include\TextureManager.h">
+      <Filter>TextureManager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ShaderManager.h">
+      <Filter>ShaderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ShaderWatcher.h">
+      <Filter>ShaderWatcher</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Logger.cpp">
@@ -76,6 +94,15 @@
     </ClCompile>
     <ClCompile Include="src\Timing.cpp">
       <Filter>Timing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureManager.cpp">
+      <Filter>TextureManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShaderManager.cpp">
+      <Filter>ShaderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShaderWatcher.cpp">
+      <Filter>ShaderWatcher</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

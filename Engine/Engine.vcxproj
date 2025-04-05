@@ -25,6 +25,9 @@
     <ClInclude Include="include\GameState.h" />
     <ClInclude Include="include\Input.h" />
     <ClInclude Include="include\Logger.h" />
+    <ClInclude Include="include\ShaderManager.h" />
+    <ClInclude Include="include\ShaderWatcher.h" />
+    <ClInclude Include="include\TextureManager.h" />
     <ClInclude Include="include\Timing.h" />
     <ClInclude Include="include\Window.h" />
     <ClInclude Include="include\WindowSystem.h" />
@@ -34,6 +37,9 @@
     <ClCompile Include="src\GameStateManager.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Logger.cpp" />
+    <ClCompile Include="src\ShaderManager.cpp" />
+    <ClCompile Include="src\ShaderWatcher.cpp" />
+    <ClCompile Include="src\TextureManager.cpp" />
     <ClCompile Include="src\Timing.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>

@@ -21,12 +21,8 @@ namespace HookBill
 		std::string GetName() { return "test level"; }
 	private:
 		entt::registry GameStateComponentManager;
-
 		InputKey Testkey;
 		GLVertexArray left_eye_model;
-		GLShader shader;
-		GLTexture test_texture;
-		GLTexture test_texture2;
-		
+			
 	};
 }

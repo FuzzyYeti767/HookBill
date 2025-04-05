@@ -6,16 +6,12 @@
 HookBill::TestLevel::TestLevel():Testkey(HookBill::InputKey::Keyboard::Space)
 {
     Engine::GetLogger().LogEvent("Creating TestLevel..");
-    shader = GLShader("Basic Shader",{ {GLShader::VERTEX, "../assets/shaders/pass_thru_pos2d_clr.vert"},{GLShader::FRAGMENT, "../assets/shaders/basic_vtx_clr_attribute.frag"} });
-    if (const bool loaded = test_texture.LoadFromFileImage("../assets/image/comet.jpg"); !loaded)
-    {
-        throw std::runtime_error{ "Failed to load the duck.png" };
-    }
-    if (const bool loaded = test_texture2.LoadFromFileImage("../assets/image/Load_Hail.jpg"); !loaded)
-    {
-        throw std::runtime_error{ "Failed to load the duck.png" };
-    }
-     
+   // shader = GLShader("Basic Shader", { {GLShader::VERTEX, "../assets/shaders/pass_thru_pos2d_clr.vert"},{GLShader::FRAGMENT, "../assets/shaders/basic_vtx_clr_attribute.frag"} });
+    Engine::GetShaderManager().Load("Basic Shader",
+        std::filesystem::path("../assets/shaders/pass_thru_pos2d_clr.vert"),
+        std::filesystem::path("../assets/shaders/basic_vtx_clr_attribute.frag"));
+
+    Engine::GetTextureManager().Load("../assets/image/beauty.jpg");
 }
 
 void HookBill::TestLevel::Load()
@@ -117,14 +113,16 @@ void HookBill::TestLevel::Draw()
 {
 	glClearColor(0.6f, 0.5f, 0.4f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    //test_texture.UseForSlot(0);
-    shader.Use();
-    test_texture.UseForSlot(11, shader, "uTex2d");
-    test_texture2.UseForSlot(12, shader,"uTex2d1");
+ 
+    //shader.Use();
+    Engine::GetShaderManager().Get("Basic Shader")->Use();
+    Engine::GetTextureManager().Load("../assets/image/beauty.jpg")->UseForSlot(11, *(Engine::GetShaderManager().Get("Basic Shader")), "uTex2d");
+    Engine::GetTextureManager().Load("../assets/image/beauty.jpg")->UseForSlot(12, *(Engine::GetShaderManager().Get("Basic Shader")), "uTex2d1");
     left_eye_model.Use();
     GLDrawIndexed(left_eye_model);
     left_eye_model.Use(false);
-    shader.Use(false);
+    Engine::GetShaderManager().Get("Basic Shader")->Use(false);
+    //shader.Use(false);
 
 
 
