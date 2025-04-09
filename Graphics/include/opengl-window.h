@@ -15,7 +15,7 @@ namespace HookBill_opengl
 	 void shutdown_window();
 	 void set_window_user_pointer(void* user_data);
 	 void InitializeFrameBuffer(int width, int height);
-
+	 void UpdateFrameBufferSize(int width, int height);
 	 
 
 

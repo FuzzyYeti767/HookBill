@@ -93,6 +93,7 @@ namespace HookBill
 			state = State::UPDATE;
 			break;
 		case State::UPDATE:
+			Engine::GetWindow().UpdateFrameBufferSize(Engine::GetWindow().GetWindowSize().x, Engine::GetWindow().GetWindowSize().y);
 			if (currGameState != nextGameState)
 			{
 				state = State::UNLOAD;

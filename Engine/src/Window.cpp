@@ -55,7 +55,9 @@ void framebuffer_size_callback([[maybe_unused]] GLFWwindow* window, int width, i
 	glViewport(0, 0, width,height);
 	std::cout << "Framebuffer size changed: " << width << "x" << height << std::endl;
 #endif
-
+	glViewport(0, 0, width, height);
+	Engine::GetWindow().SetWidth(width);
+	Engine::GetWindow().SetHeight(height);
 }
 
 
@@ -150,6 +152,12 @@ namespace HookBill
 	void Window::InitializeFrameBuffer(int width, int height)
 	{
 		HookBill_opengl::InitializeFrameBuffer(width, height);
+	}
+
+	void Window::UpdateFrameBufferSize(int width, int height)
+	{
+	
+		HookBill_opengl::UpdateFrameBufferSize(width, height);
 	}
 
 	void Window::addEventListener(Event::Type type, const std::function<void(const Event&)>& callback)
