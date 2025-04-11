@@ -8,6 +8,7 @@
 #include"Input.h"
 #include"Timing.h"
 #include"entt.hpp"
+#include"physics-test.h"
 class Engine {
 public:
     static Engine& Instance() { static Engine instance; return instance; }

@@ -13,7 +13,8 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-
+#include <glm/ext/matrix_float4x4.hpp>
+#include <glm/gtc/type_ptr.hpp> // ²À ÇÊ¿ä!
 
 namespace
 {
@@ -236,6 +237,17 @@ void GLShader::SendUniform(std::string_view name, std::span<const float, 4 * 4> 
 {
     glCheck(glUniformMatrix4fv(get_uniform_location(name), 1, (transpose) ? GL_TRUE : GL_FALSE, mat.data()));
 }
+
+
+void GLShader::SendUniform(std::string_view name, const glm::mat4& mat, GLboolean transpose)
+{
+    GLint location = get_uniform_location(name);
+    if (location != -1)
+    {
+        glUniformMatrix4fv(location, 1, transpose, glm::value_ptr(mat));
+    }
+}
+
 
 void GLShader::link_program(const std::vector<unsigned int>& shader)
 {

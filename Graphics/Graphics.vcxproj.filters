@@ -67,6 +67,12 @@
     <Filter Include="stb_image">
       <UniqueIdentifier>{08bc6c47-80da-48bc-a34b-ab8107da267d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mesh">
+      <UniqueIdentifier>{17b421a4-e058-4536-8348-ddd42c3bf9e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{18ff2241-8e25-4a2a-bfd0-937e62f52064}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ImGuiHelper.h">
@@ -180,6 +186,15 @@
     <ClInclude Include="include\stb_image.h">
       <Filter>stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="include\IMesh.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CubeMesh.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ImGuiHelper.cpp">
@@ -259,6 +274,12 @@
     </ClCompile>
     <ClCompile Include="source\stb_image_impl.cpp">
       <Filter>stb_image</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CubeMesh.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

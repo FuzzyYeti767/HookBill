@@ -1,14 +1,12 @@
 #version 410 core
 
-layout(location = 0) in vec2 aVertexPosition;
-layout(location = 1) in vec3 aVertexColor;
-layout(location = 2) in vec2 VertexTextureCordinate;
-layout(location = 0) out vec3 vColor;
-layout(location = 1) out vec2 fVertexTextureCordinate;
+layout(location = 0) in vec3 aVertexPosition;
+
+uniform mat4 uModel;
+uniform mat4 uView;
+uniform mat4 uProjection;
 
 void main()
-{ 
-    gl_Position = vec4(aVertexPosition, 0.0, 1.0);
-    vColor      = aVertexColor;
-    fVertexTextureCordinate = VertexTextureCordinate;
+{
+    gl_Position = uProjection * uView * uModel * vec4(aVertexPosition, 1.0);
 }

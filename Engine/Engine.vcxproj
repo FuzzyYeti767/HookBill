@@ -14,9 +14,6 @@
     <ProjectReference Include="..\Graphics\Graphics.vcxproj">
       <Project>{4967e2c4-f815-42b7-ad75-11e76637e308}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\Physics\Physics.vcxproj">
-      <Project>{e3d266ff-afcd-4e48-9405-2a3d568b58e0}</Project>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Engine.h" />
@@ -88,11 +85,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(ProjectDir)include</IncludePath>
-    <ExternalIncludePath>$(SolutionDir)extern\spdlog\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>$(SolutionDir)extern\spdlog\include;$(ExternalIncludePath);$(SolutionDir)Physics\include;$(SolutionDir)Physics\include</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)include</IncludePath>
-    <ExternalIncludePath>$(SolutionDir)extern\spdlog\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <IncludePath>$(ProjectDir)include;$(SolutionDir)Physics\include</IncludePath>
+    <ExternalIncludePath>$(SolutionDir)extern\spdlog\include;$(SolutionDir)extern\glm;$(SolutionDir)Physics\include;$(ExternalIncludePath);$(SolutionDir)Physics\include;$(SolutionDir)Physics\include</ExternalIncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

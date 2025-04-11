@@ -7,6 +7,9 @@
 #include<string>
 #include"entt.hpp"
 #include"GLTexture.h"
+#include"CubeMesh.h"
+#include"Camera.h"
+#
 namespace HookBill
 {
 	class TestLevel :public GameState
@@ -20,9 +23,11 @@ namespace HookBill
 		void Unload();
 		std::string GetName() { return "test level"; }
 	private:
+		CubeMesh cube_mesh;
 		entt::registry GameStateComponentManager;
 		InputKey Testkey;
 		GLVertexArray left_eye_model;
+		Camera cam;
 			
 	};
 }

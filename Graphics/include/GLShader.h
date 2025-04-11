@@ -16,7 +16,7 @@
 #include <span>
 #include <string>
 #include <string_view>
-
+#include<glm/glm.hpp>
 
 class [[nodiscard]] GLShader
 {
@@ -64,6 +64,7 @@ public:
     void SendUniform(std::string_view name, std::span<const float, 2 * 2> mat, Transpose transpose) const;
     void SendUniform(std::string_view name, std::span<const float, 3 * 3> mat, Transpose transpose = NO_TRANSPOSE) const;
     void SendUniform(std::string_view name, std::span<const float, 4 * 4> mat, Transpose transpose = NO_TRANSPOSE) const;
+    void SendUniform(std::string_view name, const glm::mat4& mat, GLboolean transpose = GL_FALSE);
     GLHandle                                        program_handle = 0;
 private:
   

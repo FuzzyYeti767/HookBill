@@ -1,8 +1,36 @@
-#include "TestLevel.h"
+﻿#include "TestLevel.h"
 #include"imgui.h"
 #include<array>
 #include"vec2.h"
 #include"color3.h"
+#include"glm/glm.hpp"
+#include <glm/gtc/type_ptr.hpp>
+#include <mat3.h>
+
+glm::vec3 camPos = glm::vec3(2, 1, 4);
+glm::vec3 camTarget = glm::vec3(0, 0, 0);
+float camFOV = 60.0f;
+
+void ImGuiCameraControl(Camera& cam, glm::vec3& position, glm::vec3& target, float& fov)
+{
+    ImGui::Begin("Camera Settings");
+
+    if (ImGui::DragFloat3("Position", &position[0], 0.1f))
+        cam.LookAt(position, target, glm::vec3(0, 1, 0));
+
+    if (ImGui::DragFloat3("Target", &target[0], 0.1f))
+        cam.LookAt(position, target, glm::vec3(0, 1, 0));
+
+    if (ImGui::SliderFloat("FOV", &fov, 30.0f, 120.0f)) {
+        float aspect = static_cast<float>(Engine::GetWindow().GetWindowSize().x) / Engine::GetWindow().GetWindowSize().y;
+        cam.SetPerspective(fov, aspect, 0.1f, 100.0f);
+    }
+
+    ImGui::End();
+}
+
+
+
 HookBill::TestLevel::TestLevel():Testkey(HookBill::InputKey::Keyboard::Space)
 {
     Engine::GetLogger().LogEvent("Creating TestLevel..");
@@ -18,86 +46,10 @@ void HookBill::TestLevel::Load()
 {
 
 	ImGuiHelper::print_and_save_opengl_settings();
-    std::vector<vec2> pos_vtx =
-    {
-        //Fisrt Triangle
-        vec2{1,-1},  //0
-        vec2{1,1}, //1
-        vec2{-1,1},  //2
-        vec2{-1,-1}
-    };
-    std::vector<vec2> texture_vtx =
-    {
-        //Fisrt Triangle
-        vec2{1.0f,0.0f},  //0
-        vec2{1.0f,1.0f}, //1
-        vec2{0.0,1.0f},  //2
-        vec2{0.0,0.0f},  //2
-    };
 
-
-
-    std::vector<color3>clr_vtx =
-    {
-        color3{1.0f,0.0f,1.0f},
-        color3{0.0f,1.0f,1.0f},
-        color3{0.0f,0.0f,0.f},
-    	color3{0.0f,0.7f,0.f},
-      
-    };
-    std::vector<GLuint>idx_vtx =
-    {
-        0,
-        1,
-        2,
-
-        2,
-        3,
-        0
-    };
-
-
-
-
-
-
-    GLAttributeLayout position;
-    position.component_dimension = GLAttributeLayout::_2;
-    position.component_type = GLAttributeLayout::Float;
-    position.normalized = false;
-    position.offset = 0;
-    position.relative_offset = 0;
-    position.stride = sizeof(vec2);
-    position.vertex_layout_location = 0;
-
-
-    GLAttributeLayout texture;
-    texture.component_dimension = GLAttributeLayout::_2;
-    texture.component_type = GLAttributeLayout::Float;
-    texture.normalized = false;
-    texture.offset = 0;
-    texture.relative_offset = 0;
-    texture.stride = sizeof(vec2);
-    texture.vertex_layout_location = 2;
-
-
-    GLAttributeLayout color;
-    color.component_type = GLAttributeLayout::Float;
-    color.component_dimension = GLAttributeLayout::_3;
-    color.normalized = false;
-    color.vertex_layout_location = 1; // 2nd field of Vertex
-    color.stride = sizeof(color3);
-    color.offset = 0; // starts after the position bytes
-    color.relative_offset = 0;
-
-    GLIndexBuffer index(idx_vtx);
-
-    left_eye_model.AddVertexBuffer(GLVertexBuffer(std::span{ pos_vtx }), { position });
-    left_eye_model.AddVertexBuffer(GLVertexBuffer(std::span{ clr_vtx }), { color });
-    left_eye_model.AddVertexBuffer(GLVertexBuffer(std::span{ texture_vtx }), { texture });
-    left_eye_model.SetIndexBuffer(std::move(index));
-    left_eye_model.SetPrimitivePattern(GLPrimitive::Triangles);
-	
+    cam.SetPerspective(60.0f, (float)Engine::GetWindow().GetWindowSize().x / Engine::GetWindow().GetWindowSize().y, 0.1f, 100.0f);
+    cam.LookAt(camPos, camTarget, glm::vec3(0, 1, 0));
+			
 }
 
 void HookBill::TestLevel::Update()
@@ -107,22 +59,40 @@ void HookBill::TestLevel::Update()
 	{
 		Engine::GetLogger().LogEvent("Key released ");
 	}
+
+  
+
 }
+
+
 
 void HookBill::TestLevel::Draw()
 {
 	glClearColor(0.6f, 0.5f, 0.4f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
- 
-    //shader.Use();
+    
+    
+    glm::mat4 model = glm::mat4(1.0f); // 필요 시 회전/이동 추가
+
     Engine::GetShaderManager().Get("Basic Shader")->Use();
-    Engine::GetTextureManager().Load("../assets/image/beauty.jpg")->UseForSlot(11, *(Engine::GetShaderManager().Get("Basic Shader")), "uTex2d");
-    Engine::GetTextureManager().Load("../assets/image/beauty.jpg")->UseForSlot(12, *(Engine::GetShaderManager().Get("Basic Shader")), "uTex2d1");
-    left_eye_model.Use();
-    GLDrawIndexed(left_eye_model);
-    left_eye_model.Use(false);
+
+    cube_mesh.Use(true);
+
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // 와이어프레임
+
+
+
+    Engine::GetShaderManager().Get("Basic Shader")->SendUniform("uModel", model);
+    Engine::GetShaderManager().Get("Basic Shader")->SendUniform("uView", cam.GetViewMatrix());
+    Engine::GetShaderManager().Get("Basic Shader")->SendUniform("uProjection", cam.GetProjectionMatrix());
+  
+    cube_mesh.Draw();
+    cube_mesh.Use(false);
+    
     Engine::GetShaderManager().Get("Basic Shader")->Use(false);
-    //shader.Use(false);
+
+
+
 
 
 
@@ -132,7 +102,8 @@ void HookBill::TestLevel::ImGuiDraw()
 {
 
 #ifdef _DEBUG
-	ImGui::Begin("Program Info");
+    ImGuiCameraControl(cam, camPos, camTarget, camFOV);
+	/*ImGui::Begin("Program Info");
 	{
 		
 		ImGui::LabelText("FPS", "%.1f", Engine::GetTiming().get_fps());
@@ -145,7 +116,7 @@ void HookBill::TestLevel::ImGuiDraw()
 			
 		}
 	}
-	ImGui::End();
+	ImGui::End();*/
 #endif
 
 
@@ -156,5 +127,7 @@ void HookBill::TestLevel::ImGuiDraw()
 
 void HookBill::TestLevel::Unload()
 {
-    std::cout << "sex " << '\n';
+  
 }
+
+
