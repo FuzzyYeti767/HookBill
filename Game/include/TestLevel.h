@@ -23,7 +23,8 @@ namespace HookBill
 		void Unload();
 		std::string GetName() { return "test level"; }
 	private:
-		CubeMesh cube_mesh;
+
+				
 		entt::registry GameStateComponentManager;
 		InputKey Testkey;
 		GLVertexArray left_eye_model;

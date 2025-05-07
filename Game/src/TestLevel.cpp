@@ -68,7 +68,7 @@ void HookBill::TestLevel::Update()
 
 void HookBill::TestLevel::Draw()
 {
-	glClearColor(0.6f, 0.5f, 0.4f, 1.0f);
+	glClearColor(118.f/255.f, 181.f/255.f, 197.f/255.f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     
