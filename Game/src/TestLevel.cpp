@@ -72,24 +72,6 @@ void HookBill::TestLevel::Draw()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     
-    glm::mat4 model = glm::mat4(1.0f); // 필요 시 회전/이동 추가
-
-    Engine::GetShaderManager().Get("Basic Shader")->Use();
-
-    cube_mesh.Use(true);
-
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // 와이어프레임
-
-
-
-    Engine::GetShaderManager().Get("Basic Shader")->SendUniform("uModel", model);
-    Engine::GetShaderManager().Get("Basic Shader")->SendUniform("uView", cam.GetViewMatrix());
-    Engine::GetShaderManager().Get("Basic Shader")->SendUniform("uProjection", cam.GetProjectionMatrix());
-  
-    cube_mesh.Draw();
-    cube_mesh.Use(false);
-    
-    Engine::GetShaderManager().Get("Basic Shader")->Use(false);
 
 
 
