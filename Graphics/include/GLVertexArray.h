@@ -130,3 +130,5 @@ public:
 
 void GLDrawIndexed(const GLVertexArray& vertex_array) noexcept;
 void GLDrawVertices(const GLVertexArray& vertex_array) noexcept;
+void GLDrawArrayInstanced(const GLVertexArray& vertex_array, int count);
+void GLDrawElementInstanced(const GLVertexArray& vertex_array, int count);

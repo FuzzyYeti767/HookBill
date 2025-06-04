@@ -14,7 +14,7 @@
 #include <iostream>
 #include <vector>
 #include <glm/ext/matrix_float4x4.hpp>
-#include <glm/gtc/type_ptr.hpp> // ²À ÇÊ¿ä!
+#include <glm/gtc/type_ptr.hpp> 
 
 namespace
 {
@@ -92,6 +92,7 @@ GLShader::GLShader(std::string_view the_shader_name, const std::initializer_list
                         glCheck(glDeleteShader(shdr));
                     }
                 }
+                std::cout << error << '\n';
                 throw std::runtime_error(error);
             }
             index++;

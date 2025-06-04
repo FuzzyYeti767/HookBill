@@ -8,8 +8,8 @@
 #include"entt.hpp"
 #include"GLTexture.h"
 #include"CubeMesh.h"
-#include"Camera.h"
-#
+
+
 namespace HookBill
 {
 	class TestLevel :public GameState
@@ -23,12 +23,12 @@ namespace HookBill
 		void Unload();
 		std::string GetName() { return "test level"; }
 	private:
-
 				
-		entt::registry GameStateComponentManager;
 		InputKey Testkey;
-		GLVertexArray left_eye_model;
-		Camera cam;
+		GLVertexArray Triangle_Model;
+		glm::vec3 currentColor = glm::vec3(1.0f, 192.0f / 255.0f, 203.0f / 255.0f); 
+		bool UseUniform=false;
+	
 			
 	};
 }

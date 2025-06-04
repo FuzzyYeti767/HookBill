@@ -72,7 +72,6 @@ void GLVertexArray::AddVertexBuffer(GLVertexBuffer&& vertex_buffer, std::initial
 {
 
 
-
 	for (auto& layout : buffer_layout)
 	{
 		glCheck(glEnableVertexArrayAttrib(vertex_array_handle, layout.vertex_layout_location));
@@ -81,7 +80,7 @@ void GLVertexArray::AddVertexBuffer(GLVertexBuffer&& vertex_buffer, std::initial
 		glCheck(glVertexArrayAttribBinding(vertex_array_handle, layout.vertex_layout_location, layout.vertex_layout_location));
 	}
 
-	//vertex_buffers.emplace_back(std::move(vertex_buffer));
+	vertex_buffers.emplace_back(std::move(vertex_buffer));
 
 
 }
@@ -99,6 +98,7 @@ void GLVertexArray::SetIndexBuffer(GLIndexBuffer&& the_indices)
 
 
 
+
 void GLDrawIndexed([[maybe_unused]] const GLVertexArray& vertex_array) noexcept
 {
 
@@ -108,11 +108,24 @@ void GLDrawIndexed([[maybe_unused]] const GLVertexArray& vertex_array) noexcept
 void GLDrawVertices([[maybe_unused]] const GLVertexArray& vertex_array) noexcept
 {
 
-
 	glCheck(glDrawArrays(vertex_array.GetPrimitivePattern(), vertex_array.GetIndicesCount(), vertex_array.GetVertexCount()));
 
+}
 
+void GLDrawArrayInstanced(const GLVertexArray& vertex_array, int count)
+{
+	glDrawArraysInstanced(vertex_array.GetPrimitivePattern(), 0, vertex_array.GetVertexCount(), count);
+}
 
+void GLDrawElementInstanced(const GLVertexArray& vertex_array, int count)
+{
+	glDrawElementsInstanced(
+		vertex_array.GetPrimitivePattern(),         // mode
+		vertex_array.GetIndicesCount(),                   // index 개수
+		vertex_array.GetIndicesType(),        // 인덱스 타입
+		0,                                    // offset
+		count                                 // instance 개수
+	);
 }
 
 

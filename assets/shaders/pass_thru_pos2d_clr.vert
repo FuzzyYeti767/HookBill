@@ -1,12 +1,22 @@
 #version 410 core
 
 layout(location = 0) in vec3 aVertexPosition;
+layout(location = 1) in vec3 aVertexColor;
 
-uniform mat4 uModel;
-uniform mat4 uView;
-uniform mat4 uProjection;
-
+out vec3 outVertexColor;
+uniform vec3 ourColor;
+uniform bool useUniform;
 void main()
 {
-    gl_Position = uProjection * uView * uModel * vec4(aVertexPosition, 1.0);
+    float offset = float(gl_InstanceID) * 0.1;
+    gl_Position =  vec4(aVertexPosition.x+offset,aVertexPosition.y,aVertexPosition.z, 1.0);
+    
+    if(useUniform==true)
+    {
+         outVertexColor=ourColor;
+    }
+   else
+   {
+    outVertexColor=aVertexColor;
+   }
 }

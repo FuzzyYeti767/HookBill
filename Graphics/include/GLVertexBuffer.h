@@ -18,7 +18,7 @@ class [[nodiscard]] GLVertexBuffer
 
 public:
     explicit GLVertexBuffer(GLsizei size_in_bytes);
-
+    GLVertexBuffer() = default;
     template <typename T, auto N = std::dynamic_extent>
     GLVertexBuffer(std::span<T, N> buffer_data) : GLVertexBuffer(static_cast<GLsizei>(buffer_data.size_bytes()))
     {
