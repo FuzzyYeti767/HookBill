@@ -1,3 +1,6 @@
+﻿
+
+
 #pragma once
 #include"opengl-window.h"
 #include<string>
