@@ -23,8 +23,8 @@ namespace HookBill
         bool Reload(const std::string& name);
         std::shared_ptr<GLShader> Get(const std::string& name) const;
         void Clear();
-
-       
+        void Use(const std::string& name,bool use) const;
+            
         void Update();
 
     private:

@@ -100,6 +100,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\TestLevel.cpp" />
+    <ClCompile Include="TestLevel2.cpp">
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</TreatWarningAsError>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
@@ -108,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\TestLevel.h" />
+    <ClInclude Include="TestLevel2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

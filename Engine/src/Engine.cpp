@@ -21,6 +21,7 @@ void Engine::Init(std::string windowName)
 {
 	GetLogger().LogEvent("Initialize Engine");
 	window.Init(windowName);
+
 	RegisterSystem([]() { Engine::GetInput().Update(); });
 	RegisterSystem([]() { Engine::GetShaderManager().Update(); });
 	RegisterSystem([]() { Engine::GetGameStateManager().Update(); });
@@ -38,14 +39,15 @@ void Engine::Shutdown()
 void Engine::Update()
 {
 
-	for (auto& system : engine_systems) 
-	{
-        system();
-    }
-	//GetInput().Update();
-	//GetGameStateManager().Update();
-	//GetWindow().Update();
-	//GetTiming().update_timing();
+	//for (auto& system : engine_systems) 
+	//{
+ //       system();
+ //   }
+	GetGameStateManager().Update();
+	GetInput().Update();
+	Engine::GetShaderManager().Update();
+	GetWindow().Update();
+	GetTiming().update_timing();
 	//ToDo : Input update 
 }
 

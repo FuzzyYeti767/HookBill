@@ -6,6 +6,8 @@ namespace HookBill
 	{
 		keyDown.resize(static_cast<int>(InputKey::Keyboard::Count), false);
 		wasKeyDown.resize(static_cast<int>(InputKey::Keyboard::Count), false);
+		keyReleased.resize(static_cast<int>(InputKey::Keyboard::Count), false);
+		//wasKeyReleased.resize(static_cast<int>(InputKey::Keyboard::Count), false);
 	}
 
 	bool Input::IsKeyDown(InputKey::Keyboard key) const
@@ -15,13 +17,19 @@ namespace HookBill
 
 	bool Input::IsKeyReleased(InputKey::Keyboard key) const
 	{
-		return (keyDown[static_cast<int>(key)]==false && wasKeyDown[static_cast<int>(key)] == true);
+		
+		return  (keyDown[static_cast<int>(key)]==false) && (wasKeyDown[static_cast<int>(key)] == true);
 	}
 
 	void Input::SetKeyDown(InputKey::Keyboard key, bool value)
 	{
-		//std::cout << static_cast<int>(key) << '\n';
+	
 		keyDown[static_cast<int>(key)] = value;
+	}
+
+	void Input::SetKeyReleased(InputKey::Keyboard key, bool value)
+	{
+		keyReleased[static_cast<int>(key)] = value;
 	}
 
 	void Input::Update()

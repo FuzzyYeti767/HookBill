@@ -1,4 +1,4 @@
-ï»¿#include "TestLevel.h"
+#include "TestLevel2.h"
 #include"imgui.h"
 #include<array>
 #include"vec2.h"
@@ -10,28 +10,28 @@
 
 
 
-HookBill::TestLevel::TestLevel():Testkey(HookBill::InputKey::Keyboard::Space)
+HookBill::TestLevel2::TestLevel2() :Testkey(HookBill::InputKey::Keyboard::Space)
 {
-    Engine::GetLogger().LogEvent("Creating TestLevel..");
-   // shader = GLShader("Basic Shader", { {GLShader::VERTEX, "../assets/shaders/pass_thru_pos2d_clr.vert"},{GLShader::FRAGMENT, "../assets/shaders/basic_vtx_clr_attribute.frag"} });
-    Engine::GetShaderManager().Load("Basic Shader",
-        std::filesystem::path("../assets/shaders/pass_thru_pos2d_clr.vert"),
-        std::filesystem::path("../assets/shaders/basic_vtx_clr_attribute.frag"));
+	Engine::GetLogger().LogEvent("Creating TestLevel..");
+	// shader = GLShader("Basic Shader", { {GLShader::VERTEX, "../assets/shaders/pass_thru_pos2d_clr.vert"},{GLShader::FRAGMENT, "../assets/shaders/basic_vtx_clr_attribute.frag"} });
+	Engine::GetShaderManager().Load("Basic Shader",
+		std::filesystem::path("../assets/shaders/pass_thru_pos2d_clr.vert"),
+		std::filesystem::path("../assets/shaders/basic_vtx_clr_attribute.frag"));
 
-    Engine::GetTextureManager().Load("../assets/image/beauty.jpg");
+	Engine::GetTextureManager().Load("../assets/image/beauty.jpg");
 	Engine::GetTextureManager().Load("../assets/image/container.jpg");
 }
 
-void HookBill::TestLevel::Load()
+void HookBill::TestLevel2::Load()
 {
 
 	ImGuiHelper::print_and_save_opengl_settings();
-	std::array<glm::vec2,4> positions_data =
+	std::array<glm::vec2, 4> positions_data =
 	{
-		glm::vec2(-0.5f, -0.5f), // ì™¼ìª½ ì•„ëž˜
-		glm::vec2(0.5f, -0.5f), // ì˜¤ë¥¸ìª½ ì•„ëž˜
-		glm::vec2(0.5f,  0.5f), // ì˜¤ë¥¸ìª½ ìœ„
-		glm::vec2(-0.5f,  0.5f)  // ì™¼ìª½ ìœ„
+		glm::vec2(-0.5f, -0.5f), // ¿ÞÂÊ ¾Æ·¡
+		glm::vec2(0.5f, -0.5f), // ¿À¸¥ÂÊ ¾Æ·¡
+		glm::vec2(0.5f,  0.5f), // ¿À¸¥ÂÊ À§
+		glm::vec2(-0.5f,  0.5f)  // ¿ÞÂÊ À§
 	};
 
 	GLVertexBuffer positions(std::span{ positions_data });
@@ -47,7 +47,7 @@ void HookBill::TestLevel::Load()
 
 	GLVertexBuffer colors(std::span{ colors_data });
 
-	std::array<const unsigned,6> indices_data =
+	std::array<const unsigned, 6> indices_data =
 	{
 		0, 1, 2,
 		2, 3, 0
@@ -57,10 +57,10 @@ void HookBill::TestLevel::Load()
 
 	std::array<glm::vec2, 4> texture_cordinate_data =
 	{
-		glm::vec2(0.0f, 0.0f), // ì™¼ìª½ ì•„ëž˜
-		glm::vec2(1.0f, 0.0f), // ì˜¤ë¥¸ìª½ ì•„ëž˜
-		glm::vec2(1.0f, 1.0f), // ì˜¤ë¥¸ìª½ ìœ„
-		glm::vec2(0.0f, 1.0f)  // ì™¼ìª½ ìœ„
+		glm::vec2(0.0f, 0.0f), // ¿ÞÂÊ ¾Æ·¡
+		glm::vec2(1.0f, 0.0f), // ¿À¸¥ÂÊ ¾Æ·¡
+		glm::vec2(1.0f, 1.0f), // ¿À¸¥ÂÊ À§
+		glm::vec2(0.0f, 1.0f)  // ¿ÞÂÊ À§
 	};
 
 	GLVertexBuffer texture_cordinates(std::span{ texture_cordinate_data });
@@ -104,54 +104,54 @@ void HookBill::TestLevel::Load()
 	Triangle_Model.SetIndexBuffer(std::move(indices));
 }
 
-void HookBill::TestLevel::Update()
+void HookBill::TestLevel2::Update()
 {
-	
-	if (Testkey.IsKeyReleased())
+
+	if (Testkey.IsKeyDown())
 	{
 		Engine::GetLogger().LogEvent("Key released ");
-		Engine::GetGameStateManager().SetNextState(1);
 	}
 }
 
 
 
-void HookBill::TestLevel::Draw()
+void HookBill::TestLevel2::Draw()
 {
-	glClearColor(118.f/255.f, 181.f/255.f, 197.f/255.f, 1.0f);
+	glClearColor(118.f / 255.f, 181.f / 255.f, 197.f / 255.f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	
-	Engine::GetShaderManager().Use("Basic Shader",true);
+
+	Engine::GetShaderManager().Use("Basic Shader", true);
 	Triangle_Model.Use();
 	Engine::GetTextureManager().Load("../assets/image/beauty.jpg")->UseForSlot(3, *(Engine::GetShaderManager().Get("Basic Shader")), "Utex2d");
-	Engine::GetTextureManager().Load("../assets/image/wall.jpg")->UseForSlot(4, *(Engine::GetShaderManager().Get("Basic Shader")), "Utex2d1");
+	Engine::GetTextureManager().Load("../assets/image/comet.jpg")->UseForSlot(4, *(Engine::GetShaderManager().Get("Basic Shader")), "Utex2d1");
+	//ÆÄÀÏÀÌ¸§¿¡ È®ÀåÀÚ¸¸ ÀÖ°í ÀÌ¸§ÀÌ ¾ø¾úÀ½
 	GLDrawIndexed(Triangle_Model);
 	Triangle_Model.Use(false);
 	Engine::GetShaderManager().Use("Basic Shader", false);
 
 }
 
-void HookBill::TestLevel::ImGuiDraw()
+void HookBill::TestLevel2::ImGuiDraw()
 {
 
 #ifdef _DEBUG
-   
+
 	ImGui::Begin("Program Info");
 	{
-		
+
 		ImGui::LabelText("FPS", "%.1f", Engine::GetTiming().get_fps());
 
 		for (const auto& [label, description] : ImGuiHelper::settings_descriptions)
 		{
 			ImGui::LabelText(label.c_str(), "%s", description.c_str());
 		}
-		ImGui::Separator(); 
+		ImGui::Separator();
 		ImGui::Text("Color Settings");
 		ImGui::ColorEdit3("UniformColor", glm::value_ptr(currentColor));
 
 		ImGui::Separator();
-		
+
 		ImGui::Checkbox("Use Uniform", &UseUniform);
 
 
@@ -163,12 +163,12 @@ void HookBill::TestLevel::ImGuiDraw()
 
 
 
-	
+
 }
 
-void HookBill::TestLevel::Unload()
+void HookBill::TestLevel2::Unload()
 {
-  
+
 }
 
 

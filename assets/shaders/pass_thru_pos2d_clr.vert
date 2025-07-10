@@ -2,21 +2,17 @@
 
 layout(location = 0) in vec3 aVertexPosition;
 layout(location = 1) in vec3 aVertexColor;
-
+layout(location = 2) in vec2 aTextureCordinate;
 out vec3 outVertexColor;
+out vec2 outTextureCordinate;
 uniform vec3 ourColor;
 uniform bool useUniform;
 void main()
 {
-    float offset = float(gl_InstanceID) * 0.1;
-    gl_Position =  vec4(aVertexPosition.x+offset,aVertexPosition.y,aVertexPosition.z, 1.0);
-    
-    if(useUniform==true)
-    {
-         outVertexColor=ourColor;
-    }
-   else
-   {
+   
+    gl_Position =  vec4(aVertexPosition.x,aVertexPosition.y,aVertexPosition.z, 1.0);
+         
     outVertexColor=aVertexColor;
-   }
+    outTextureCordinate=aTextureCordinate;
+   
 }

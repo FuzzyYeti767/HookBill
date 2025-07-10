@@ -16,9 +16,15 @@
     <ClCompile Include="src\TestLevel.cpp">
       <Filter>TestLevel</Filter>
     </ClCompile>
+    <ClCompile Include="TestLevel2.cpp">
+      <Filter>TestLevel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\TestLevel.h">
+      <Filter>TestLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="TestLevel2.h">
       <Filter>TestLevel</Filter>
     </ClInclude>
   </ItemGroup>

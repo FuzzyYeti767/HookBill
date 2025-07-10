@@ -1,4 +1,4 @@
-#include"Engine.h"
+﻿#include"Engine.h"
 #include"Window.h"
 #include<iostream>
 #include<sstream>
@@ -14,13 +14,13 @@ void key_callback([[maybe_unused]] GLFWwindow* window, int key, [[maybe_unused]]
 
 		HookBill::Event event(HookBill::Event::Type::KeyPressed, key);
 		Engine::GetEventDispatcher().dispatch(event);
-		Engine::GetInput().SetKeyDown(static_cast<HookBill::InputKey::Keyboard>(key), true);
+		
 	}
 	else if (action == GLFW_RELEASE) {
 
 		HookBill::Event event(HookBill::Event::Type::KeyReleased, key);
 		Engine::GetEventDispatcher().dispatch(event);
-		Engine::GetInput().SetKeyDown(static_cast<HookBill::InputKey::Keyboard>(key), false);
+		
 	}
 }
 
@@ -79,10 +79,11 @@ namespace HookBill
 			{
 #ifdef _DEBUG
 				std::ostringstream oss;
-				// << "Key pressed: " << event.key << '\n';
+				//oss << "Key pressed: " << event.key << '\n';
 				Engine::GetInput().SetKeyDown(static_cast<HookBill::InputKey::Keyboard>(event.key), true);
-				//Engine::GetLogger().LogVerbose(oss.str());
-#endif
+				//Engine::GetLogger().LogEvent(oss.str());
+#endif         // Engine::GetInput().Update();
+				//Engine::GetInput().Update();
 
 
 			}
@@ -95,7 +96,9 @@ namespace HookBill
 				std::ostringstream oss;
 				//oss << "Key Released: " << static_cast<char>(event.key) << '\n';
 				Engine::GetInput().SetKeyDown(static_cast<HookBill::InputKey::Keyboard>(event.key), false);
-				//Engine::GetLogger().LogVerbose(oss.str());
+				//Engine::GetInput().Update();
+			
+				
 #endif
 
 			}

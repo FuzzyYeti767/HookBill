@@ -63,4 +63,28 @@ namespace HookBill {
         }
     }
 
+    void ShaderManager::Use(const std::string& name,bool use) const 
+    {
+        if (use == true)
+        {
+            auto shader = Get(name);
+            if (shader) {
+                shader->Use();
+            }
+            else {
+                Engine::GetLogger().LogError("Shader not found: " + name);
+            }
+        }
+        else
+        {
+            auto shader = Get(name);
+            if (shader) {
+                shader->Use(false);
+            }
+            else {
+                Engine::GetLogger().LogError("Shader not found: " + name);
+            }
+        }
+	}
+
 } // namespace HookBill
