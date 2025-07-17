@@ -278,9 +278,6 @@
     <ClCompile Include="src\CubeMesh.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="src\Camera.cpp">
-      <Filter>Camera</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\imgui_impl_metal.mm">

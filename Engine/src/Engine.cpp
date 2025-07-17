@@ -43,6 +43,7 @@ void Engine::Update()
 	//{
  //       system();
  //   }
+	
 	GetGameStateManager().Update();
 	GetInput().Update();
 	Engine::GetShaderManager().Update();

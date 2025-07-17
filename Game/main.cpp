@@ -7,8 +7,8 @@ int main()
 	engine.Init("Test Engine Please Ignore");
 	HookBill::TestLevel test;
 	HookBill::TestLevel2 test2;
-	Engine::GetGameStateManager().AddGameState(test);
 	Engine::GetGameStateManager().AddGameState(test2);
+	Engine::GetGameStateManager().AddGameState(test);
 	while (!engine.ShouldCloseWindow())
 	{
 			engine.Update();

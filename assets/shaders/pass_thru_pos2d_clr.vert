@@ -7,10 +7,11 @@ out vec3 outVertexColor;
 out vec2 outTextureCordinate;
 uniform vec3 ourColor;
 uniform bool useUniform;
+uniform mat4 mvp;
 void main()
 {
    
-    gl_Position =  vec4(aVertexPosition.x,aVertexPosition.y,aVertexPosition.z, 1.0);
+    gl_Position =  mvp*vec4(aVertexPosition.x,aVertexPosition.y,aVertexPosition.z, 1.0);
          
     outVertexColor=aVertexColor;
     outTextureCordinate=aTextureCordinate;

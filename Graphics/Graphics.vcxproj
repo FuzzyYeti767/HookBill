@@ -150,7 +150,6 @@
     <ClCompile Include="include\imgui_tables.cpp" />
     <ClCompile Include="include\imgui_widgets.cpp" />
     <ClCompile Include="source\stb_image_impl.cpp" />
-    <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\CubeMesh.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\glCheck.cpp" />
