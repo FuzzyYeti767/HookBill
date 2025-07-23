@@ -16,6 +16,8 @@ public:
     void ProcessRotation(float deltaYaw, float deltaPitch);
     void SetPerspective(float fov, float aspect, float nearClip, float farClip);
     void ProcessMovement(const glm::vec3& direction, float deltaTime);
+	glm::vec3 GetPosition() const { return m_Position; }
+	glm::vec3 GetFront() const { return m_Front; }
 private:
     void UpdateCameraVectors();
 

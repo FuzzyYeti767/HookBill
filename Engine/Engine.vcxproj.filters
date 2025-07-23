@@ -75,6 +75,9 @@
     <ClInclude Include="include\ShaderWatcher.h">
       <Filter>ShaderWatcher</Filter>
     </ClInclude>
+    <ClInclude Include="include\MouseInput.h">
+      <Filter>Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Logger.cpp">
@@ -103,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="src\ShaderWatcher.cpp">
       <Filter>ShaderWatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MouseInput.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

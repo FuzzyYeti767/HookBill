@@ -21,7 +21,7 @@ void Engine::Init(std::string windowName)
 {
 	GetLogger().LogEvent("Initialize Engine");
 	window.Init(windowName);
-
+	GetMouseInput().Init(window.GetWindowSize().x, window.GetWindowSize().y);
 	RegisterSystem([]() { Engine::GetInput().Update(); });
 	RegisterSystem([]() { Engine::GetShaderManager().Update(); });
 	RegisterSystem([]() { Engine::GetGameStateManager().Update(); });
@@ -46,6 +46,9 @@ void Engine::Update()
 	
 	GetGameStateManager().Update();
 	GetInput().Update();
+	double x, y;
+	glfwGetCursorPos(Engine::GetWindow().Get_OpenGL_Window_ptr(), &x, &y);  // ¶Ç´Â SDL_GetMouseState()
+    Engine::GetMouseInput().Update((float)x, (float)y);
 	Engine::GetShaderManager().Update();
 	GetWindow().Update();
 	GetTiming().update_timing();

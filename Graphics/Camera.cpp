@@ -50,7 +50,7 @@ void Camera::ProcessRotation(float deltaYaw, float deltaPitch)
 {
     m_Yaw += deltaYaw;
     m_Pitch += deltaPitch;
-    m_Pitch = glm::clamp(m_Pitch, -89.0f, 89.0f);
+    m_Pitch = glm::clamp(m_Pitch, -89.f, 89.0f);
     UpdateCameraVectors();
 }
 

@@ -8,6 +8,8 @@
 #include"Input.h"
 #include"Timing.h"
 #include"entt.hpp"
+#include"MouseInput.h"
+
 
 class Engine {
 public:
@@ -20,6 +22,7 @@ public:
     static HookBill::Timing& GetTiming() { return Instance().timing; }
     static HookBill::TextureManager& GetTextureManager() { return Instance().texture_manager; }
     static HookBill::ShaderManager& GetShaderManager() { return Instance().shader_manager; }
+	static HookBill::MouseInput& GetMouseInput() { return Instance().mouse_input; }
     void Init(std::string windowName);
     void Shutdown();
     void Update();
@@ -42,6 +45,7 @@ private:
     HookBill::Timing timing;
     HookBill::TextureManager texture_manager;
     HookBill::ShaderManager shader_manager;
+	HookBill::MouseInput mouse_input;
     //Calculate 
 
   

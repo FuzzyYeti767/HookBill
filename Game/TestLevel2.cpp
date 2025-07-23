@@ -164,7 +164,7 @@ void HookBill::TestLevel2::Load()
 
 void HookBill::TestLevel2::Update()
 {
-    angle += 0.3f;
+    //angle += 0.3f;
     glm::vec3 move(0.0f);
     
     if (Testkey.IsKeyReleased())
@@ -172,23 +172,42 @@ void HookBill::TestLevel2::Update()
 		Engine::GetGameStateManager().SetNextState(1);
     }
 
-    if (Up.IsKeyDown())    move.z += 1.0f;  // ¾Õ
-    if (Down.IsKeyDown())  move.z -= 1.0f;  // µÚ
-    if (Left.IsKeyDown())  move.x -= 1.0f;  // ÁÂ
-    if (Right.IsKeyDown()) move.x += 1.0f;  // ¿ì
+    if (Up.IsKeyDown())    move.z += 2.0f;  // ¾Õ
+    if (Down.IsKeyDown())  move.z -= 2.0f;  // µÚ
+    if (Left.IsKeyDown())  move.x -= 2.0f;  // ÁÂ
+    if (Right.IsKeyDown()) move.x += 2.0f;  // ¿ì
 
-    camera.ProcessMovement(move, 0.001f);  // ¹æÇâ º¤ÅÍ¸¸ ³Ñ±è
+    camera.ProcessMovement(move, 0.001318f);  // ¹æÇâ º¤ÅÍ¸¸ ³Ñ±è
 
-    float sensitivity = 0.1f;
+    float sensitivity = 0.2f;
 
 
-   // camera.ProcessRotation(dx * sensitivity, -dy * sensitivity);
+    float dx = MouseInput::GetDeltaX();
+    float dy = MouseInput::GetDeltaY();
+
+    camera.ProcessRotation(dx * sensitivity, -dy * sensitivity);
 
 }   
 
 void HookBill::TestLevel2::ImGuiDraw()
 {
+    ImGui::Begin("TestLevel2");
+
+    ImGui::Text("Press [Space] to go back to main menu");
+    ImGui::Text("Use [W, A, S, D] to move around");
+    ImGui::Text("Move mouse to look around");
+    ImGui::Text("Press [ESC] to release cursor");
+
+    const glm::vec3& pos = camera.GetPosition();
+    const glm::vec3& front = camera.GetFront();
+
+    ImGui::Separator();
+    ImGui::Text("Camera Position: (%.2f, %.2f, %.2f)", pos.x, pos.y, pos.z);
+    ImGui::Text("Camera Front:    (%.2f, %.2f, %.2f)", front.x, front.y, front.z);
+
+    ImGui::End();
 }
+
 
 void HookBill::TestLevel2::Draw()
 {
@@ -197,7 +216,8 @@ void HookBill::TestLevel2::Draw()
 
 	
 	glm::mat4 scale=glm::scale(glm::mat4(1.0f), glm::vec3(1.f, 1.0f, 1.0f));
-	glm::mat4 rotate = glm::rotate(glm::mat4(1.0f), glm::radians(angle), glm::vec3(0.0f, 0.0f, 1.0f));
+	//glm::mat4 rotate = glm::rotate(glm::mat4(1.0f), glm::radians(angle), glm::vec3(0.0f, 0.0f, 1.0f));
+    glm::mat4 rotate = glm::mat4(1.0f);
 	glm::mat4 translate = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.4f));
 
 	glm::mat4 mvp = camera.GetViewProjectionMatrix() * translate * rotate * scale;
