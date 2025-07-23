@@ -25,7 +25,8 @@ void key_callback([[maybe_unused]] GLFWwindow* window, int key, [[maybe_unused]]
 }
 
 
-void mouse_button_callback([[maybe_unused]] GLFWwindow* window, int button, int action, [[maybe_unused]] int mods) {
+void mouse_button_callback([[maybe_unused]] GLFWwindow* window, int button, int action, [[maybe_unused]] int mods) 
+{
 	if (action == GLFW_PRESS) {
 
 		HookBill::Event event(HookBill::Event::Type::MouseButtonPressed, button);

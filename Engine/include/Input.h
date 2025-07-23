@@ -169,10 +169,12 @@ namespace HookBill {
 		void SetKeyDown(InputKey::Keyboard key, bool value);
 		void SetKeyReleased(InputKey::Keyboard key, bool value);
 		void Update();
+	
 	private:
 		std::vector<bool> keyDown;
 		std::vector<bool> wasKeyDown;
 		std::vector<bool> keyReleased;
+	
 
 	};
 }

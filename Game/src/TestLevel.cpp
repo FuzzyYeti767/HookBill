@@ -106,11 +106,9 @@ void HookBill::TestLevel::Load()
 
 void HookBill::TestLevel::Update()
 {
-	
 	if (Testkey.IsKeyReleased())
 	{
-		Engine::GetLogger().LogEvent("Key released ");
-		Engine::GetGameStateManager().SetNextState(1);
+		Engine::GetGameStateManager().SetNextState(0);
 	}
 }
 
@@ -122,7 +120,9 @@ void HookBill::TestLevel::Draw()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	
+	glm::mat4 mvp = glm::mat4(1.0f);
 	Engine::GetShaderManager().Use("Basic Shader",true);
+	Engine::GetShaderManager().Get("Basic Shader")->SendUniform("mvp", mvp);
 	Triangle_Model.Use();
 	Engine::GetTextureManager().Load("../assets/image/beauty.jpg")->UseForSlot(3, *(Engine::GetShaderManager().Get("Basic Shader")), "Utex2d");
 	Engine::GetTextureManager().Load("../assets/image/wall.jpg")->UseForSlot(4, *(Engine::GetShaderManager().Get("Basic Shader")), "Utex2d1");

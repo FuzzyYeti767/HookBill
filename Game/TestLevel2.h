@@ -27,12 +27,17 @@ namespace HookBill
 	private:
 
 		InputKey Testkey;
+		InputKey Up;
+		InputKey Down;
+		InputKey Left;
+		InputKey Right;
+
 		GLVertexArray Triangle_Model;
 
 		glm::vec3 currentColor = glm::vec3(1.0f, 192.0f / 255.0f, 203.0f / 255.0f);
 		bool UseUniform = false;
 		float angle = 30.f;
-		Camera cam;
+		Camera camera;
 
 	};
 }

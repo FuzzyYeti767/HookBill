@@ -1,56 +1,36 @@
 #pragma once
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 
 class Camera
 {
 public:
-    Camera(glm::vec3 position, glm::vec3 target, glm::vec3 up)
-        : m_Position(position), m_Target(target), m_WorldUp(up)
-    {
-        UpdateCameraVectors();
-    }
+    Camera(glm::vec3 position, float yaw, float pitch,
+        float fov, float aspectRatio, float nearClip, float farClip);
 
-    glm::mat4 GetViewMatrix() const
-    {
-        return glm::lookAt(m_Position, m_Position + m_Front, m_Up);
-    }
+    glm::mat4 GetViewMatrix() const;
+    glm::mat4 GetProjectionMatrix() const;
+    glm::mat4 GetViewProjectionMatrix() const;
 
-    void SetPosition(const glm::vec3& position)
-    {
-        m_Position = position;
-        UpdateCameraVectors();
-    }
-
-    void SetTarget(const glm::vec3& target)
-    {
-        m_Target = target;
-        UpdateCameraVectors();
-    }
-
-    void Move(const glm::vec3& offset)
-    {
-        m_Position += offset;
-        m_Target += offset;
-        UpdateCameraVectors();
-    }
-
-    const glm::vec3& GetPosition() const { return m_Position; }
-    const glm::vec3& GetFront() const { return m_Front; }
-
+    void SetPosition(const glm::vec3& pos);
+    void SetYawPitch(float yaw, float pitch);
+    void ProcessRotation(float deltaYaw, float deltaPitch);
+    void SetPerspective(float fov, float aspect, float nearClip, float farClip);
+    void ProcessMovement(const glm::vec3& direction, float deltaTime);
 private:
+    void UpdateCameraVectors();
+
     glm::vec3 m_Position;
-    glm::vec3 m_Target;
+    glm::vec3 m_Front;
+    glm::vec3 m_Up;
+    glm::vec3 m_Right;
     glm::vec3 m_WorldUp;
 
-    glm::vec3 m_Front;
-    glm::vec3 m_Right;
-    glm::vec3 m_Up;
+    float m_Yaw;
+    float m_Pitch;
 
-    void UpdateCameraVectors()
-    {
-        m_Front = glm::normalize(m_Target - m_Position);
-        m_Right = glm::normalize(glm::cross(m_Front, m_WorldUp));
-        m_Up = glm::normalize(glm::cross(m_Right, m_Front));
-    }
+  
+    float m_FOV;
+    float m_Aspect;
+    float m_Near;
+    float m_Far;
 };

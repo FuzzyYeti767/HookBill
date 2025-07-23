@@ -34,6 +34,7 @@ namespace HookBill
 
 	void Input::Update()
 	{
+		
 		wasKeyDown = keyDown;
 	}
 	
@@ -53,5 +54,4 @@ namespace HookBill
 	}
 
 	
-
 }

@@ -9,8 +9,10 @@
 #include <mat3.h>
 
 HookBill::TestLevel2::TestLevel2() : Testkey(HookBill::InputKey::Keyboard::Space),
-	 cam(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f))
+camera(glm::vec3(0.0f, 0.0f, 3.0f), -90.f, 0.0f, 45.0f, 16.0f / 9.0f, 0.1f, 100.f),
+Up(HookBill::InputKey::Keyboard::W), Down(HookBill::InputKey::Keyboard::S), Left(HookBill::InputKey::Keyboard::A), Right(HookBill::InputKey::Keyboard::D)
 {
+
     Engine::GetLogger().LogEvent("Creating TestLevel with Cube..");
     Engine::GetShaderManager().Load("Basic Shader",
         std::filesystem::path("../assets/shaders/pass_thru_pos2d_clr.vert"),
@@ -163,7 +165,26 @@ void HookBill::TestLevel2::Load()
 void HookBill::TestLevel2::Update()
 {
     angle += 0.3f;
-}
+    glm::vec3 move(0.0f);
+    
+    if (Testkey.IsKeyReleased())
+    {
+		Engine::GetGameStateManager().SetNextState(1);
+    }
+
+    if (Up.IsKeyDown())    move.z += 1.0f;  // ¾Õ
+    if (Down.IsKeyDown())  move.z -= 1.0f;  // µÚ
+    if (Left.IsKeyDown())  move.x -= 1.0f;  // ÁÂ
+    if (Right.IsKeyDown()) move.x += 1.0f;  // ¿ì
+
+    camera.ProcessMovement(move, 0.001f);  // ¹æÇâ º¤ÅÍ¸¸ ³Ñ±è
+
+    float sensitivity = 0.1f;
+
+
+   // camera.ProcessRotation(dx * sensitivity, -dy * sensitivity);
+
+}   
 
 void HookBill::TestLevel2::ImGuiDraw()
 {
@@ -174,19 +195,12 @@ void HookBill::TestLevel2::Draw()
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	cam.SetPosition(glm::vec3(1000.0f, 1010.0f, 102.0f));
-    cam.SetTarget(glm::vec3(1000.f, 1000.0f, 100.0f));
+	
+	glm::mat4 scale=glm::scale(glm::mat4(1.0f), glm::vec3(1.f, 1.0f, 1.0f));
+	glm::mat4 rotate = glm::rotate(glm::mat4(1.0f), glm::radians(angle), glm::vec3(0.0f, 0.0f, 1.0f));
+	glm::mat4 translate = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.4f));
 
-    glm::mat4 proj = glm::perspective(glm::radians(45.0f), 1920.f / 1080.f,0.1f, 1000.0f);
-	glm::mat4 view = cam.GetViewMatrix();
-    //glm::mat4 model_rotation = glm::rotate(glm::mat4(1.0f), glm::radians(angle), glm::vec3(1.0f, 0.0f, 0.0f));
-    glm::mat4 model_translation = glm::translate(glm::mat4(1.0f), glm::vec3(1000.0f, 1000.0f, 100.0f));
-     
-
-    glm::mat4 model(1.0f);
-
-    model = model_translation /** model_rotation;*/ ;
-    glm::mat4 mvp = proj * view * model;
+	glm::mat4 mvp = camera.GetViewProjectionMatrix() * translate * rotate * scale;
 
     Engine::GetShaderManager().Use("Basic Shader", true);
     Triangle_Model.Use();
@@ -200,4 +214,6 @@ void HookBill::TestLevel2::Draw()
 
 void HookBill::TestLevel2::Unload()
 {
+    Engine::GetLogger().LogEvent("Unloading TestLevel2..");
+	
 }

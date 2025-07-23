@@ -55,7 +55,8 @@ namespace HookBill {
     }
 
     
-    void ShaderManager::Update() {
+    void ShaderManager::Update()
+    {
         for (const auto& name : shader_watcher.PollChangedShaders()) 
         {
             Engine::GetLogger().LogEvent("Reloading shader: " + name);
